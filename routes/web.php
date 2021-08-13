@@ -67,7 +67,6 @@ Route::get('/CategoryItem',function(){
     return view('categoryitemsearch');
 });
 
-
 route::get('/BuyItem/{itemCode}',[itemcontroller::class, 'itemView']);
 
 Route::get('/SignUpseller',function(){
@@ -77,4 +76,8 @@ Route::get('/SignUpseller',function(){
 
 Route::get('/returnItem',function(){
     return view('ItemReturn');
+});
+
+Route::get('/ChangeAdvertiestment',function(){
+    return view('AdminAddChange');
 });
