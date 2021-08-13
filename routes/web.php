@@ -55,3 +55,7 @@ Route::get('/CategoryAdd',function(){
 Route::get('/CategoryItem',function(){
     return view('categoryitemsearch');
 });
+
+Route::get('/SignUp',function(){
+    return view('signup');
+});
