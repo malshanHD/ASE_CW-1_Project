@@ -13,6 +13,7 @@
 <body>
 <!-- start navbar start-->
 @include('include.sellerNavbar')
+
 <!-- nav-bar end-->
 <div class="container mt-5">
     <div class="row">

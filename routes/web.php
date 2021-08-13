@@ -67,10 +67,24 @@ Route::get('/CategoryItem',function(){
     return view('categoryitemsearch');
 });
 
+route::get('/BuyItem/{itemCode}',[itemcontroller::class, 'itemView']);
+
+Route::get('/SignUpseller',function(){
+    return view('sellerSignUp');
+});
+
+
+Route::get('/returnItem',function(){
+    return view('ItemReturn');
+});
+
 Route::get('/ChangeAdvertiestment',function(){
     return view('AdminAddChange');
+<<<<<<< HEAD
 });
 
 Route::get('/Saledashboard',function(){
     return view('salesdashboard');
+=======
+>>>>>>> 5fa3610f12223fd19ce6ba1ad6fb2cb4b23fa221
 });
