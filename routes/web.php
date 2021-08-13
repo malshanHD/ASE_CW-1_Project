@@ -70,3 +70,7 @@ Route::get('/CategoryItem',function(){
 Route::get('/ChangeAdvertiestment',function(){
     return view('AdminAddChange');
 });
+
+Route::get('/Saledashboard',function(){
+    return view('salesdashboard');
+});
