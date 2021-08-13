@@ -66,3 +66,6 @@ Route::get('/CategoryAdd',function(){
 Route::get('/CategoryItem',function(){
     return view('categoryitemsearch');
 });
+
+
+route::get('/BuyItem/{itemCode}',[itemcontroller::class, 'itemView']);
