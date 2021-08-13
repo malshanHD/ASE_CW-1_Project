@@ -70,3 +70,7 @@ Route::get('/CategoryItem',function(){
 Route::get('/SignIn',function(){
     return view('signin');
 });
+
+Route::get('/ChangeAdvertiestment',function(){
+    return view('AdminAddChange');
+});
