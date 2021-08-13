@@ -80,11 +80,8 @@ Route::get('/returnItem',function(){
 
 Route::get('/ChangeAdvertiestment',function(){
     return view('AdminAddChange');
-<<<<<<< HEAD
 });
 
 Route::get('/Saledashboard',function(){
     return view('salesdashboard');
-=======
->>>>>>> 5fa3610f12223fd19ce6ba1ad6fb2cb4b23fa221
 });
