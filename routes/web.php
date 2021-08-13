@@ -67,35 +67,6 @@ Route::get('/CategoryItem',function(){
     return view('categoryitemsearch');
 });
 
-<<<<<<< HEAD
-Route::get('/CategoryItem',function(){
-    return view('categoryitemsearch');
+Route::get('/SignIn',function(){
+    return view('signin');
 });
-
-
-
-=======
-<<<<<<< HEAD
-
-route::get('/BuyItem/{itemCode}',[itemcontroller::class, 'itemView']);
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 4b86bfab90d262859f36b9f80c3707367f9d99c5
-Route::get('/SignUpseller',function(){
-    return view('sellerSignUp');
-});
-
-
-Route::get('/returnItem',function(){
-    return view('ItemReturn');
-});
-<<<<<<< HEAD
-
-
-=======
-=======
->>>>>>> 41dbe9ed38c5a1dd686e64ea7b4f8752d7e8859f
->>>>>>> 79d4cd79235de7f6765bb9c2dea6b9d29c56af63
->>>>>>> a66d6401e570f91a45e9e33655a8f65f503d4417
->>>>>>> 4b86bfab90d262859f36b9f80c3707367f9d99c5
