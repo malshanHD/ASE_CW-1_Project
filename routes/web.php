@@ -67,10 +67,16 @@ Route::get('/CategoryItem',function(){
     return view('categoryitemsearch');
 });
 
+<<<<<<< HEAD
+=======
 Route::get('/SignUpseller',function(){
     return view('sellerSignUp');
 });
+<<<<<<< HEAD
 
 Route::get('/returnItem',function(){
     return view('ItemReturn');
 });
+=======
+>>>>>>> 41dbe9ed38c5a1dd686e64ea7b4f8752d7e8859f
+>>>>>>> 79d4cd79235de7f6765bb9c2dea6b9d29c56af63
