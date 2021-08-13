@@ -70,3 +70,7 @@ Route::get('/CategoryItem',function(){
 Route::get('/SignUpseller',function(){
     return view('sellerSignUp');
 });
+
+Route::get('/returnItem',function(){
+    return view('ItemReturn');
+});
