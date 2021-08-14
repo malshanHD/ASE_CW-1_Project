@@ -32,7 +32,7 @@
     </div>
 </div>
 <div class="container">
-    <div class="row">
+    <div class="row  justify-content-center" >
     @foreach($datas as $data)
         <div class="col-6 mt-2">
             <div class="card" style="width:100%;">
@@ -41,41 +41,52 @@
                 </div>
             </div>
         </div>
-        <div class="col-6 ">
-        <form method="post" action="https://sandbox.payhere.lk/pay/checkout"> 
-
-            <input type="hidden" name="merchant_id" value="1218301">   
-            <input type="hidden" name="return_url" value="http://sample.com/return">
-            <input type="hidden" name="cancel_url" value="http://sample.com/cancel">
-            <input type="hidden" name="notify_url" value="http://sample.com/notify">  
-
-            <h4 class="mt-4">{{$data->itemName}}</h4>
-            <input type="hidden" name="order_id" value="Registration">
-            <input type="hidden" name="items" value="{{$data->itemName}}">
-            <input type="hidden" name="currency" value="LKR">
-
-            <p>BID Starting Price : LKR {{$data->itemPrice}} </p>
-            <input type="hidden" name="bidStart" value="{{$data->itemPrice}}" id="bidStart">
-            <input type="hidden" name="bdPer" id="bdPer" value="20">
-            <input type="hidden" name="amount" id="total">
-
-           
-
-            <p>Current Bid Price : LKR 50 </p>
-            <input type="text" name="bidding" class="border border-primary" id="bidding" onchange="getPrice()">
-            <p>Enter LKR 51 or more</p>
+        <div class="col-6 mt-2 ">
             
+        <div class="card" style="width: 100%; height:100%; background: rgb(241,241,241)">
+            <div class="card-body">
+                <h5 class="card-title">{{$data->itemName}}</h5>
+                <form method="post" action="https://sandbox.payhere.lk/pay/checkout"> 
 
-            <input type="submit" value="Buy Now"> 
-            <input type="hidden" name="first_name" value="Saman">
-            <input type="hidden" name="last_name" value="Perera"><br>
-            <input type="hidden" name="email" value="samanp@gmail.com">
-            <input type="hidden" name="phone" value="0771234567"><br>
-            <input type="hidden" name="address" value="No.1, Galle Road">
-            <input type="hidden" name="city" value="Colombo">
-            <input type="hidden" name="country" value="Sri Lanka">
+                    <input type="hidden" name="merchant_id" value="1218301">   
+                    <input type="hidden" name="return_url" value="http://sample.com/return">
+                    <input type="hidden" name="cancel_url" value="http://sample.com/cancel">
+                    <input type="hidden" name="notify_url" value="http://sample.com/notify">  
 
-        </form>
+                    <input type="hidden" name="order_id" value="Registration">
+                    <input type="hidden" name="items" value="{{$data->itemName}}">
+                    <input type="hidden" name="currency" value="LKR">
+
+                    <p>BID Starting Price : LKR {{$data->itemPrice}} </p>
+                    <input type="hidden" name="bidStart" value="{{$data->itemPrice}}" id="bidStart">
+                    <input type="hidden" name="bdPer" id="bdPer" value="20">
+                    <input type="hidden" name="amount" id="total">
+
+
+
+                    <p>Current Bid Price : LKR 50 </p>
+                    <input type="text" name="bidding" class="border border-primary" id="bidding" onchange="getPrice()">
+                    <p>Enter LKR 51 or more</p>
+
+
+                    <input type="submit" value="Buy Now"> 
+                    <input type="hidden" name="first_name" value="Saman">
+                    <input type="hidden" name="last_name" value="Perera"><br>
+                    <input type="hidden" name="email" value="samanp@gmail.com">
+                    <input type="hidden" name="phone" value="0771234567"><br>
+                    <input type="hidden" name="address" value="No.1, Galle Road">
+                    <input type="hidden" name="city" value="Colombo">
+                    <input type="hidden" name="country" value="Sri Lanka">
+
+                    </form>
+
+                <p><b>Shipping:</b> Free Shiping </p>
+                <p><b>Delivery:</b> Estimated between Thu. Sep. 2 and Mon. Sep. 13 </p>
+                <p><b>Payements:</b> Free Shiping </p>
+                <p><b>Returns:</b> 30 day returns. Buyer pays for return shipping </p>
+                
+            </div>
+        </div>
         </div>
     @endforeach
     </div>
