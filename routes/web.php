@@ -18,7 +18,18 @@ use App\Http\Controllers\itemcontroller;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $maincategory=App\Models\maincategory::all();
+
+    $WomensFashion=App\Models\item::where('itemMainCat','100')->orderBy('id','DESC')->take(6)->get();
+    $MensFashion=App\Models\item::where('itemMainCat','101')->orderBy('id','DESC')->take(6)->get();
+    $Jewelleryitems=App\Models\item::where('itemMainCat','102')->orderBy('id','DESC')->take(6)->get();
+    $Babyitems=App\Models\item::where('itemMainCat','103')->orderBy('id','DESC')->take(6)->get();
+    $Furnitures=App\Models\item::where('itemMainCat','104')->orderBy('id','DESC')->take(6)->get();
+    $Books=App\Models\item::where('itemMainCat','106')->orderBy('id','DESC')->take(6)->get();
+    $Electronicitems=App\Models\item::where('itemMainCat','107')->orderBy('id','DESC')->take(6)->get();
+    
+
+    return view('welcome', compact('MensFashion', 'maincategory','WomensFashion','Jewelleryitems','Babyitems','Furnitures','Books','Electronicitems'));
 });
 
 Auth::routes();
@@ -54,4 +65,23 @@ Route::get('/CategoryAdd',function(){
 
 Route::get('/CategoryItem',function(){
     return view('categoryitemsearch');
+});
+
+route::get('/BuyItem/{itemCode}',[itemcontroller::class, 'itemView']);
+
+Route::get('/SignUpseller',function(){
+    return view('sellerSignUp');
+});
+
+
+Route::get('/returnItem',function(){
+    return view('ItemReturn');
+});
+
+Route::get('/ChangeAdvertiestment',function(){
+    return view('AdminAddChange');
+});
+
+Route::get('/Saledashboard',function(){
+    return view('salesdashboard');
 });
