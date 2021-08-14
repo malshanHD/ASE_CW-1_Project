@@ -41,14 +41,41 @@
                 </div>
             </div>
         </div>
-        <div class="col-6">
-            <h4>{{$data->itemName}}</h4>
-            <p>BID Starting Price : ${{$data->itemPrice}} </p>
-            <p>Ratings </p>
-            <p>Quantity </p>
-            <p>Seller Name </p>
-            <button type="submit" class="btn btn-primary "> Buy Now</button>
-            <button type="submit" class="btn btn-secondary ">Add to cart</button>
+        <div class="col-6 ">
+        <form method="post" action="https://sandbox.payhere.lk/pay/checkout"> 
+
+            <input type="hidden" name="merchant_id" value="1218301">   
+            <input type="hidden" name="return_url" value="http://sample.com/return">
+            <input type="hidden" name="cancel_url" value="http://sample.com/cancel">
+            <input type="hidden" name="notify_url" value="http://sample.com/notify">  
+
+            <h4 class="mt-4">{{$data->itemName}}</h4>
+            <input type="hidden" name="order_id" value="Registration">
+            <input type="hidden" name="items" value="{{$data->itemName}}">
+            <input type="hidden" name="currency" value="LKR">
+
+            <p>BID Starting Price : LKR {{$data->itemPrice}} </p>
+            <input type="hidden" name="bidStart" value="{{$data->itemPrice}}" id="bidStart">
+            <input type="hidden" name="bdPer" id="bdPer" value="20">
+            <input type="hidden" name="amount" id="total">
+
+           
+
+            <p>Current Bid Price : LKR 50 </p>
+            <input type="text" name="bidding" class="border border-primary" id="bidding" onchange="getPrice()">
+            <p>Enter LKR 51 or more</p>
+            
+
+            <input type="submit" value="Buy Now"> 
+            <input type="hidden" name="first_name" value="Saman">
+            <input type="hidden" name="last_name" value="Perera"><br>
+            <input type="hidden" name="email" value="samanp@gmail.com">
+            <input type="hidden" name="phone" value="0771234567"><br>
+            <input type="hidden" name="address" value="No.1, Galle Road">
+            <input type="hidden" name="city" value="Colombo">
+            <input type="hidden" name="country" value="Sri Lanka">
+
+        </form>
         </div>
     @endforeach
     </div>
@@ -132,6 +159,15 @@
 </div>
 
 @include('include.footer')
+
+<script>
+        getPrice = function() {
+            var numVal1 = Number(document.getElementById("bidStart").value);
+            var numVal2 = Number(document.getElementById("bdPer").value) / 100;
+            var totalValue =  (numVal1 * numVal2)
+            document.getElementById("total").value = totalValue;
+        }
+</script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
