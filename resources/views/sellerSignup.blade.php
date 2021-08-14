@@ -71,7 +71,7 @@
                   <div class="row">
                      <div class="col-md-6 mt-5">
                         <label> Company name:</label>
-                        <input type="text" name="name" placeholder="Company name" class="form-control border-primary">
+                        <input type="text" name="companyname" placeholder="Company name" class="form-control border-primary">
                      </div>
                   </div>
 
