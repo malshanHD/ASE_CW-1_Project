@@ -85,3 +85,7 @@ Route::get('/ChangeAdvertiestment',function(){
 Route::get('/Saledashboard',function(){
     return view('salesdashboard');
 });
+
+Route::get('/SellerProfile',function(){
+    return view('sellerprofile');
+});
