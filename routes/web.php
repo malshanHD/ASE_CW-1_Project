@@ -89,3 +89,7 @@ Route::get('/Saledashboard',function(){
 Route::get('/SellerProfile',function(){
     return view('sellerprofile');
 });
+
+Route::get('/ReportSeller',function(){
+    return view('reportSeller');
+});

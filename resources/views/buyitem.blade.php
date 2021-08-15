@@ -8,13 +8,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
+
+<style>
+    .checked {
+    color: orange;
+    }
+</style>
+
 <body>
 @include('include.BuyerNavBar')
 
 <form class="md-form form-sm mt-0 text-center" action="" method="get">
             {{csrf_field()}}
       <div class="container mt-3">
-        <div class="row justify-content-center"        >
+        <div class="row justify-content-center">
             <div class="col-md-8">        
                 <div class="input-group">        
                     <input type="search" class="form-control rounded" name="Search" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
@@ -86,6 +93,27 @@
                 <p><b>Returns:</b> 30 day returns. Buyer pays for return shipping </p>
                 
             </div>
+
+            <div class="card" >
+            <div class="card-body text-center">
+                <h5>Seller name: Sarath pon seka</h5>
+                <h5>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </h5>
+
+            </div>
+            </div>
+
+            <p class="text-center"><a class="text-danger font-weight-bold" href="#">Report this seller <i class="fa fa-ban" aria-hidden="true"></i></a></p>
+
+            <hr>
+
+
+
         </div>
         </div>
     @endforeach
