@@ -69,8 +69,41 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col">
-                        
+                    <div class="col mt-3">
+                    <label><b>Give your Ratings <i class="fa fa-star" aria-hidden="true"></i></b></label> 
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 ">
+                    <button type="submit" class="btn btn-primary mt-3 mr-4" > {{ __('Excellent') }}
+                    </button> 
+                    <button type="submit" class="btn btn-primary mt-3 mr-4"> {{ __('Very Good') }}
+                    </button> 
+                    <button type="submit" class="btn btn-primary mt-3 mr-4"> {{ __('Good') }}
+                    </button> 
+                    <button type="submit" class="btn btn-primary mt-3 mr-4"> {{ __('Poor') }}
+                    </button>  
+                    <button type="submit" class="btn btn-primary mt-3 mr-4"> {{ __('Bad') }}
+                    </button> 
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col mt-4">
+                    <label><b>Feedback</b></label>
+                              <textarea name="" id="" class="form-control" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                        <button type="submit" class="btn btn-primary mt-3 mr-4"> {{ __('Add Comment') }}
+                    </button>
+                        </div>
                     </div>
                 </div>
             </div>
