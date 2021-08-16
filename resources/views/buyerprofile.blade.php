@@ -53,50 +53,15 @@
         <div class="card mt-2 border-dark" style="width:100%; background: rgb(241,241,241);">
 
                 <h5 class="card-title ml-2 mr-2 mt-3 text-dark"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Buyer Image</h5>
+                
                     <div class="text ml-2 mr-2 mt-3 float-left">
                     <img src="itemimage/user.jpg" class="rounded " alt="...">
+                    
                     </div>
                                     
-            <div class="container mt-5" style="background: rgb(241,241,241);">
-            <div class="row">
-                <div class="col-12 col-md-3 mt-2">
-                    <h5 class="font-weight-bold"><i class="fa fa-trophy" aria-hidden="true"></i> Bid Items</h5>
-                    <hr>
-                </div>
-            </div>
-          </div> 
-                <div class="col-12 col-md-3 mb-2">
-            <div class="card" style="width: 100%;">
-              <div class="card-body">
-                <img class="card-img-top" src="itemimage/pen.jpg" style="width:100%; height:100%;" alt="Card image cap"> 
-
-                   <span>
-                      <p>$40</p>
-                   </span>         
-              </div>
-            </div>
-          </div> 
-          <div class="container mt-5" style="background: rgb(241,241,241);">
-            <div class="row">
-                <div class="col-12 col-md-3 mt-2">
-                    <h5 class="font-weight-bold"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Winning Items</h5>
-                    <hr>
-                </div>
-            </div>
-          </div> 
-                <div class="col-12 col-md-3 mb-2">
-            <div class="card" style="width: 100%;">
-              <div class="card-body">
-                <img class="card-img-top" src="itemimage/pen.jpg" style="width:100%; height:100%;" alt="Card image cap"> 
-                   <span>
-                      <p>$40</p>
-                   </span>         
-              </div>
-            </div>
-          </div> 
+  
             
               <h5 class="card-title ml-2 mr-2 mt-3 text-dark"></h5>
-            <p class="card-text ml-2 mr-2 text-dark">Feedback Ratings <i class="fa fa-commenting" aria-hidden="true"></i></p>
             <p class="text-center"><a class="text-danger font-weight-bold" href="#">Report this buyer<i class="fa fa-ban" aria-hidden="true"></i></a></p>
 
 
@@ -111,6 +76,118 @@
           </div>
         </div>
     </div>
+</div>
+<div class="container">
+                <div class="row">
+                    <div class="col mt-3">
+                    <label><b>Bid Items </b></label> 
+                    </div>
+                    </div>
+                </div>
+            </div>
+<div class="container">
+  <div class="row">
+    <div class="col-3 mt-3">
+    <div class="card" style="width: 100%; background: rgb(241,241,241);">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                
+                <p class="card-text"></p>
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-3 mt-3">
+    <div class="card" style="width: 100%; background: rgb(241,241,241);">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                
+                <p class="card-text"></p>
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-3 mt-3">
+    <div class="card" style="width: 100%; background: rgb(241,241,241);">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                
+                <p class="card-text"></p>
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-3 mt-3">
+    <div class="card" style="width: 100%; background: rgb(241,241,241);">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                
+                <p class="card-text"></p>
+                
+            </div>
+        </div>
+        
+    </div>
+  </div>
+</div>
+<div class="container">
+                <div class="row">
+                    <div class="col mt-3">
+                    <label><b>Winning Items </b></label> 
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+  <div class="row">
+    <div class="col-3 mt-3">
+    <div class="card" style="width: 100%; background: rgb(241,241,241);">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                
+                <p class="card-text"></p>
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-3 mt-3">
+    <div class="card" style="width: 100%; background: rgb(241,241,241);">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                
+                <p class="card-text"></p>
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-3 mt-3">
+    <div class="card" style="width: 100%; background: rgb(241,241,241);">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                
+                <p class="card-text"></p>
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-3 mt-3">
+    <div class="card" style="width: 100%; background: rgb(241,241,241);">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                
+                <p class="card-text"></p>
+                
+            </div>
+        </div>
+        
+    </div>
+  </div>
 </div>
 
 
