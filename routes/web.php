@@ -93,3 +93,10 @@ Route::get('/SellerProfile',function(){
 Route::get('/ReportSeller',function(){
     return view('reportSeller');
 });
+Route::get('/Help',function(){
+    return view('help');
+});
+
+Route::get('/BuyerProfile',function(){
+    return view('buyerprofile');
+});

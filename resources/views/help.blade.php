@@ -10,17 +10,13 @@
 
    <style>
 
-   .oval {
-    height: 100px;
-    width: 100px;
-    background-color: #555;
-    border-radius: 50%;
-}
-.rectangle {
-  height: 50px;
-  width: 100px;
-  background-color: #555;
-}
+        .oval {
+          height: 100px;
+          width: 100px;
+          background-color: #555;
+          border-radius: 50%;
+      }
+
    </style>
 
    
