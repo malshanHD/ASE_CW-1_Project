@@ -14,6 +14,9 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware(['auth','verified']);
+        // if(Auth::user()->user_Levl == 1){
+        //     throw Exception
+        // }
     }
 
     /**

@@ -82,9 +82,20 @@ Route::get('/ChangeAdvertiestment',function(){
     return view('AdminAddChange');
 });
 
-Route::get('/Saledashboard',function(){
-    return view('salesdashboard');
+
+Route::middleware(['seller'])->group(function (){
+    Route::get('/Saledashboard',function(){
+        return view('salesdashboard');
+    });
 });
+
+
+Route::middleware(['buyer'])->group(function (){
+    // Route::get('/Saledashboard',function(){
+    //     return view('salesdashboard');
+    // });
+});
+
 
 Route::get('/SellerProfile',function(){
     return view('sellerprofile');
