@@ -17,7 +17,7 @@
       <div class="container-fluid mt-5 ">
             <div class="row justify-content-center">
                 <div class="col-4  align-self-center alert alert-primary" role="alert">
-                <h5 class="text-center">Report this seller</h5>
+                <h5 class="text-center">Report this seller <i class="fa fa-ban" aria-hidden="true"></i></h5>
                 <p>We created policies to make sure Sams & Sams is a safe place to buy and sell. If you have a problem with a seller because they’re not following our policies, let us know and we’ll look into it.</p>
                 <div class="form-group">
                 <label for="msgbox"> Reason: </label>
