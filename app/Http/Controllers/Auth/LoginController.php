@@ -42,8 +42,9 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user){
         if($user->user_Level == 1){
             return redirect()->to('/Saledashboard');
-        }else{
-            return redirect()->to('/buyer-dashboard');
+        }
+        else{
+            return redirect()->to('/');
         }
     }
 }

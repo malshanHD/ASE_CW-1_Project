@@ -11,8 +11,8 @@
 <body>
 @include('include.BuyerNavBar')
 
-<form class="md-form form-sm" action="" method="get">
-
+<form class="md-form form-sm" action="/sellerReported" method="post">
+{{csrf_field()}}
       
       <div class="container-fluid mt-5 ">
             <div class="row justify-content-center">
@@ -20,23 +20,26 @@
                 <h5 class="text-center">Report this seller <i class="fa fa-ban" aria-hidden="true"></i></h5>
                 <p>We created policies to make sure Sams & Sams is a safe place to buy and sell. If you have a problem with a seller because they’re not following our policies, let us know and we’ll look into it.</p>
                 <div class="form-group">
+                
+                <input type="hidden" value="{{$seller}}" name="seller">
+                <input type="hidden" value="{{Auth::user()->name}}" name="authuser">
                 <label for="msgbox"> Reason: </label>
-                    <select class="form-control border-primary" name="gender" id="gender">
+                    <select class="form-control border-primary" name="reason" id="reason">
                         <option value="" selected>Choose</option>
-                        <option value="Male">My item hasn’t arrived</option>
-                        <option value="Female">My item was already damaged when I received it.</option>
-                        <option value="Male">The seller isn’t responding to me</option>
-                        <option value="Male">They do not intend to complete the sale</option>
-                        <option value="Male">They send threatening messages or use abusive or vulgar language</option>
+                        <option>My item hasn’t arrived</option>
+                        <option>My item was already damaged when I received it.</option>
+                        <option>The seller isn’t responding to me</option>
+                        <option>They do not intend to complete the sale</option>
+                        <option>They send threatening messages or use abusive or vulgar language</option>
                     </select>
                 <label class="mt-3" for="msgbox"> Additional Comments: </label>
-                <textarea class="form-control" id="msgbox" rows="6"></textarea>
+                <textarea class="form-control" name="additional" id="msgbox" rows="6"></textarea>
             </div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-4 col-md-4">
-                    <button type="button" class="btn btn-primary text-right">Report</button>
+                    <button type="submit" class="btn btn-primary text-right">Report</button>
                 </div>
             </div>
       </div>

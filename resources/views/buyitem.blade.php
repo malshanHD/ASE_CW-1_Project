@@ -56,9 +56,9 @@
                 <form method="post" action="https://sandbox.payhere.lk/pay/checkout"> 
 
                     <input type="hidden" name="merchant_id" value="1218301">   
-                    <input type="hidden" name="return_url" value="http://sample.com/return">
+                    <input type="hidden" name="return_url" value="http://meleven.ml/">
                     <input type="hidden" name="cancel_url" value="http://sample.com/cancel">
-                    <input type="hidden" name="notify_url" value="http://sample.com/notify">  
+                    <input type="hidden" name="notify_url" value="localhost:8000/payment">  
 
                     <input type="hidden" name="order_id" value="Registration">
                     <input type="hidden" name="items" value="{{$data->itemName}}">
@@ -85,6 +85,7 @@
                     <input type="hidden" name="city" value="Colombo">
                     <input type="hidden" name="country" value="Sri Lanka">
 
+                    
                     </form>
 
                 <p><b>Shipping:</b> Free Shiping </p>
@@ -96,15 +97,9 @@
 
             <div class="card" >
             <div class="card-body text-center">
-                <h5>Seller name: Sarath pon seka</h5>
-                <h5>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                </h5>
-
+                <h5><a class="text-dark" href="/sallerprofile/{{$data->seller}}">{{$data->seller}}</a></h5>
+                
+               
             </div>
             </div>
 

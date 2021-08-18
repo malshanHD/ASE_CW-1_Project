@@ -6,10 +6,10 @@
   <div class="collapse navbar-collapse justify-content-center text-uppercase font-weight-bold" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Sales Dashboard</a>
+        <a class="nav-link" href="/Saledashboard">Sales Dashboard</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">New Item </a>
+        <a class="nav-link" href="/ItemInsert">New Item </a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="#">Check Orders</a>

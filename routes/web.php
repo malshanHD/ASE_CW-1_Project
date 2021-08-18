@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\maincatcontroller;
 use App\Http\Controllers\subcatcontroller;
 use App\Http\Controllers\itemcontroller;
-
+use App\Http\Controllers\bidPayment;
+use App\Http\Controllers\sellerSignUpController;
+use App\Http\Controllers\BuyerSignUpController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,7 +43,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::post('/itemUpload','itemcontroller@saveItem');
 
-Route::get('ItemInsert',[subcatcontroller::class, 'getCountries']);
+
 
 
 Route::get('dropdownlist/getstates/{id}',[subcatcontroller::class, 'getStates']);
@@ -55,6 +57,9 @@ Route::get('/findSubCat',[subcatcontroller::class, 'subcatfind']);
 Route::post('/categorySave',[maincatcontroller::class, 'savedata']);
 Route::post('/subcategorySave',[subcatcontroller::class, 'subsavedata']);
 Route::post('/itemUpload',[itemcontroller::class, 'saveItem']);
+Route::post('/sellerInfoSave',[sellerSignUpController::class, 'saveSellerInfo']);
+Route::post('/buyerSave',[BuyerSignUpController::class, 'saveBuyerInfo']);
+
 
 
 
@@ -73,6 +78,10 @@ Route::get('/SignUpseller',function(){
     return view('sellerSignUp');
 });
 
+Route::get('/Buyersignup',function(){
+    return view('SignUp');
+});
+
 
 Route::get('/returnItem',function(){
     return view('ItemReturn');
@@ -83,27 +92,28 @@ Route::get('/ChangeAdvertiestment',function(){
 });
 
 
-Route::middleware(['seller'])->group(function (){
+Route::middleware(['auth','seller'])->group(function (){
     Route::get('/Saledashboard',function(){
         return view('salesdashboard');
     });
+
+    Route::get('ItemInsert',[subcatcontroller::class, 'getCountries']);
+    
+
 });
 
 
-Route::middleware(['buyer'])->group(function (){
-    // Route::get('/Saledashboard',function(){
-    //     return view('salesdashboard');
-    // });
+Route::middleware(['auth','buyer'])->group(function (){
+
+    
 });
 
+Route::get('/sallerprofile/{seller}',[sellerSignUpController::class, 'sallerProfile']);
 
-Route::get('/SellerProfile',function(){
-    return view('sellerprofile');
-});
+Route::get('/ReportSeller/{seller}',[sellerSignUpController::class, 'reportSellerView']);
 
-Route::get('/ReportSeller',function(){
-    return view('reportSeller');
-});
+
+
 Route::get('/Help',function(){
     return view('help');
 });
@@ -111,3 +121,19 @@ Route::get('/Help',function(){
 Route::get('/BuyerProfile',function(){
     return view('buyerprofile');
 });
+
+Route::POST('/payment',[bidPayment::class, 'bidSave']);
+
+Route::POST('/sellerReported',[sellerSignUpController::class, 'sellerReport']);
+
+
+
+
+
+
+route::get('/rate/1/{name}/{username}',[sellerSignUpController::class, 'sellerRatingStrong']);
+route::get('/rate/2/{name}/{username}',[sellerSignUpController::class, 'sellerRatingGood']);
+route::get('/rate/3/{name}/{username}',[sellerSignUpController::class, 'sellerRatingNormal']);
+route::get('/rate/4/{name}/{username}',[sellerSignUpController::class, 'sellerRatingPoor']);
+route::get('/rate/5/{name}/{username}',[sellerSignUpController::class, 'sellerRatingStrongPoor']);
+
