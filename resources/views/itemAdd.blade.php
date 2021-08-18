@@ -90,7 +90,7 @@
                 <input type="text" class="form-control border border-primary" id="itemPrice"  placeholder="Item Price" name="Price" required>
             </div>
          </div>
-        
+        <input type="hidden" name="sellerName" value="{{ Auth::user()->name }}">
         <div class="col-8">
             <div class="form-group mt-2">
                 <label for="mainPic">Main Picture</label> <span class="text-danger">*</span>

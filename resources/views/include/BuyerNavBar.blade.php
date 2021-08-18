@@ -6,8 +6,19 @@
   <div class="collapse navbar-collapse justify-content-end text-uppercase font-weight-bold" id="navbarNavDropdown">
     <ul class="navbar-nav">
     <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
+        <a class="nav-link" href="/">Home</a>
       </li>
+
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Register
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/SignUpseller">As a Seller</a>
+          <a class="dropdown-item" href="/Buyersignup">As a Customer</a>
+        </div>
+      </li>
+
       <li class="nav-item active">
         <a class="nav-link" href="#">Language</a>
       </li>
@@ -24,8 +35,9 @@
         <a class="nav-link" href="#">Account</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Logout</a>
+        <a class="nav-link" href="/login">Login</a>
       </li>
+      
     </ul>
   </div>
 </nav>

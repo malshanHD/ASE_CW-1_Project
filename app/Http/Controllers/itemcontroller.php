@@ -7,6 +7,7 @@ use App\Models\item;
 use App\Models\ItemImage;
 use App\Models\comment;
 use App\Models\cmntreply;
+
 use DB;
 
 class itemcontroller extends Controller
@@ -44,6 +45,7 @@ class itemcontroller extends Controller
             'itemMainCat' => $request->category,
             'itemSubCat' => $request->subcate,
             'mainImage' => $imgName,
+            'seller' => $request->sellerName,
         ]);
 
 
@@ -70,6 +72,7 @@ class itemcontroller extends Controller
     public function itemView($itemCode){
         $itemRetrive=$itemCode;
         $datas=item::where('itemCode',$itemRetrive)->get();
+        
 
         $images=ItemImage::where('item_id',$itemRetrive)->get();
 

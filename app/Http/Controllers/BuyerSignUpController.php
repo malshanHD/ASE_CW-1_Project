@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\buyerUser;
+use App\Models\User;
 
 
 class BuyerSignUpController extends Controller
@@ -12,10 +13,20 @@ class BuyerSignUpController extends Controller
     {
         $BuyerData=new buyerUser;
 
+        $ulevel=2;
+        $passusername=$request->usernames;
+        $passemail=$request->email;
+        
+        if (User::where('name', $request->usernames)->exists()) {
+            //email exists in user table
+            return redirect()->back()->with('message', 'This username was already taken!');
+
+         }
+
         $this->validate($request,[
             
+            'usernames'=>'required|max:10',
             'email'=>'required|max:180|min:2',
-            'fname'=>'required|max:180|min:2',
             'Lname'=>'required|max:180|min:2',
             'gender'=>'required',
             'dob'=>'required',
@@ -35,6 +46,7 @@ class BuyerSignUpController extends Controller
 
         $request->picture->move(public_path('buyer_images'),$BuyerImage);
 
+        $BuyerData->username= $request->usernames;
         $BuyerData->email= $request->email;
         $BuyerData->firstname= $request->fname;
         $BuyerData->lastname= $request->Lname;
@@ -49,6 +61,7 @@ class BuyerSignUpController extends Controller
         $BuyerData->zipcode= $request->zipcode;
         $BuyerData->profilePicture= $BuyerImage;
         $BuyerData->save();
-        return redirect()->back()->with('message', 'Item Added Successfully!');
+        
+        return view('auth.register', compact('ulevel', 'passusername','passemail'));
     }
 }

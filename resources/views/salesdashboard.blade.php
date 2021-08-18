@@ -10,6 +10,7 @@
 <body>
 <!-- start navbar start-->
 @include('include.sellerNavbar')
+   
 <!-- nav-bar end-->
 <div class="container">
     <Div class="row">
