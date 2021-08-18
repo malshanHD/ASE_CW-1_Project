@@ -137,3 +137,6 @@ route::get('/rate/3/{name}/{username}',[sellerSignUpController::class, 'sellerRa
 route::get('/rate/4/{name}/{username}',[sellerSignUpController::class, 'sellerRatingPoor']);
 route::get('/rate/5/{name}/{username}',[sellerSignUpController::class, 'sellerRatingStrongPoor']);
 
+Route::get('/AdminRegistration',function(){
+    return view('adminregistration');
+});
