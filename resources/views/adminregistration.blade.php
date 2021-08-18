@@ -44,14 +44,14 @@
 </head>
 <body>
  <!-- nav start-->
- @include('include.BuyerNavBar')
+ @include('include.adminNavBar')
 <!-- nav end-->
 
 <!-- Sign-up form start-->
 <div class="container mt-3"> 
     <div class="col-md-3"></div>
     <div class="col-md-12" id="form">
-      <form method="post" action="/buyerSave" enctype="multipart/form-data">
+      <form method="post" action="/newAdmin" enctype="multipart/form-data">
       {{csrf_field()}}
            <h1>Welcome to Sams & Sams!</h1>
 

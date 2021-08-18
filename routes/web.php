@@ -8,6 +8,7 @@ use App\Http\Controllers\itemcontroller;
 use App\Http\Controllers\bidPayment;
 use App\Http\Controllers\sellerSignUpController;
 use App\Http\Controllers\BuyerSignUpController;
+use App\Http\Controllers\adminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,6 +60,7 @@ Route::post('/subcategorySave',[subcatcontroller::class, 'subsavedata']);
 Route::post('/itemUpload',[itemcontroller::class, 'saveItem']);
 Route::post('/sellerInfoSave',[sellerSignUpController::class, 'saveSellerInfo']);
 Route::post('/buyerSave',[BuyerSignUpController::class, 'saveBuyerInfo']);
+Route::post('/newAdmin',[adminController::class, 'saveAdminInfo']);
 
 
 
@@ -87,6 +89,7 @@ Route::get('/returnItem',function(){
     return view('ItemReturn');
 });
 
+
 Route::get('/ChangeAdvertiestment',function(){
     return view('AdminAddChange');
 });
@@ -105,6 +108,15 @@ Route::middleware(['auth','seller'])->group(function (){
 
 Route::middleware(['auth','buyer'])->group(function (){
 
+    
+});
+
+Route::middleware(['auth','admin'])->group(function (){
+
+    Route::get('/adminReg',function(){
+        return view('adminregistration');
+    });
+    
     
 });
 
@@ -137,6 +149,3 @@ route::get('/rate/3/{name}/{username}',[sellerSignUpController::class, 'sellerRa
 route::get('/rate/4/{name}/{username}',[sellerSignUpController::class, 'sellerRatingPoor']);
 route::get('/rate/5/{name}/{username}',[sellerSignUpController::class, 'sellerRatingStrongPoor']);
 
-Route::get('/AdminRegistration',function(){
-    return view('adminregistration');
-});
