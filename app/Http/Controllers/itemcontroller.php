@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\item;
+use App\Models\seller_info;
 use App\Models\ItemImage;
 use App\Models\comment;
 use App\Models\cmntreply;
@@ -69,9 +70,12 @@ class itemcontroller extends Controller
 
         return redirect()->back()->with('message', 'Item Added Successfully!');
     }
-    public function itemView($itemCode){
+    public function itemView($itemCode,$seller){
         $itemRetrive=$itemCode;
+        
         $datas=item::where('itemCode',$itemRetrive)->get();
+
+        $sellerInfo=seller_info::where('username',$seller)->get();
         
 
         $images=ItemImage::where('item_id',$itemRetrive)->get();
@@ -86,6 +90,6 @@ class itemcontroller extends Controller
 
        
 
-        return view('buyitem', compact('images', 'datas','item','cmnt'));
+        return view('buyitem', compact('images', 'datas','item','cmnt','sellerInfo'));
     }
 }

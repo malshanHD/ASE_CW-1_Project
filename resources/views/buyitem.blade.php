@@ -75,8 +75,13 @@
                     <input type="text" name="bidding" class="border border-primary" id="bidding" onchange="getPrice()">
                     <p>Enter LKR 51 or more</p>
 
-
-                    <input type="submit" value="Buy Now"> 
+                    @foreach($sellerInfo as $seller)
+                    @if($seller->status)
+                    <input type="submit" value="Buy Now">
+                    @else 
+                    <input type="submit" value="Buy Now" disabled>
+                    @endif
+                    @endforeach
                     <input type="hidden" name="first_name" value="Saman">
                     <input type="hidden" name="last_name" value="Perera"><br>
                     <input type="hidden" name="email" value="samanp@gmail.com">
@@ -95,13 +100,23 @@
                 
             </div>
 
+            @foreach($sellerInfo as $seller)
+            @if($seller->status)
             <div class="card" >
             <div class="card-body text-center">
                 <h5><a class="text-dark" href="/sallerprofile/{{$data->seller}}">{{$data->seller}}</a></h5>
-                
-               
+        
             </div>
             </div>
+            @else
+            <div class="card bg-danger" >
+            <div class="card-body text-center">
+                <h5><a class="text-light" href="/sallerprofile/{{$data->seller}}">{{$data->seller}}</a></h5>  
+                <p class="text-light">Warning : This seller under Ban</p>             
+            </div>
+            </div>
+            @endif
+            @endforeach
 
             <p class="text-center"><a class="text-danger font-weight-bold" href="#">Report this seller <i class="fa fa-ban" aria-hidden="true"></i></a></p>
 

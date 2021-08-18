@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Report</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
@@ -80,72 +80,39 @@
 </nav>
 <!-- nav end-->
 
-<!-- Sign-up form start-->
-<div class="container mt-3"> 
-    <div class="col-md-3"></div>
-    <div class="col-md-12" id="form">
-      <form method="post" action="/newAdmin" enctype="multipart/form-data">
-      {{csrf_field()}}
-           <h1>Welcome to Sams & Sams!</h1>
-
-           <!-- error message -->
-            @foreach($errors->all() as $error)
-               <div class="alert alert-danger" role="alert">
-               {{$error}}
-               </div>
-            @endforeach
-            
-            @if(session()->has('message'))
-               <div class="alert alert-success">
-               {{ session()->get('message') }}
-               </div>
-            @endif
-
-                  <div class="row">
-                           <div class="col-md-4 mt-5">
-                              <label>Username:</label>
-                              <input type="text" name="usernames" placeholder="Username" class="form-control border border-primary"  required="">
-                           </div>
-
-                           <div class="col-md-4 mt-5">
-                              <label>Frist Name:</label>
-                              <input type="text" name="fname" placeholder="Frist Name" class="form-control border border-primary"  required="">
-                           </div>
-
-                           <div class="col-md-4 mt-5">
-                              <label>Last Name:</label>
-                              <input type="text" name="Lname" placeholder="Last Name" class="form-control border-primary" required="">
-                           </div>
-                  </div>
-                    
-               <hr class="mt-4">
-                 <div class="row">
-                           <div class="col-md-6">
-                              <label>Email:</label>
-                              <input type="email" name="email" placeholder="Email" class="form-control border-primary" required="">
-                           </div>
-
-                        <div class="col-md-4">
-                           <label>Contact no:</label>
-                              <input type="text" name="contact" placeholder="Contact no" class="form-control border-primary" required="">
-                        </div>
-                 </div>
-                <hr class="mt-4">
-
-                  <div class="row">
-                     <div class="col-md-6">
-                        <label>User Image:</label>
-                        <input type="file" name="picture" id="picture" class="form-control border-primary">
-                     </div>
-                  </div>
-
-                <hr class="mt-4">
-                <input type="submit" value="Save" class="btn btn-primary" name="btnSave">
-
-      </form>
-      </div>
-     </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <table class="table">
+                <caption>List of users</caption>
+                <thead>
+                    <tr>
+                    <th scope="col">Report ID</th>
+                    <th scope="col">Report User</th>
+                    <th scope="col">Seller</th>
+                    <th scope="col">Reason</th>
+                    <th scope="col">Addtional</th>
+                    <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach($repdata as $data)
+                    <tr>
+                    <td>{{$data->id}}</td>
+                    <td>{{$data->reportuser}}</td>
+                    <td><a href="/SellerCheck/{{$data->sellername}}">{{$data->sellername}}</a></td>
+                    <td>{{$data->reason}}</td>
+                    <td>{{$data->additional}}</td>
+                    <td>
+                        <a href="/notereport/{{$data->id}}" class="btn btn-warning">Noted</a>
+                    </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
+</div>
   <!-- Sign-up form end-->
 
     <!--footer start-->

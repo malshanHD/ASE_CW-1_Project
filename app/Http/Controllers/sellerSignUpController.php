@@ -74,10 +74,11 @@ class sellerSignUpController extends Controller
     public function sellerRatingStrong($name,$username){
         $rate=new sellerRate;
 
-        if (sellerRate::where('username', $name)->exists()) {
+        if (sellerRate::where([['username', $name],['seller',$username]])->exists()) {
             //email exists in user table
             return redirect()->back();
         }
+       
 
         $rate->value=1;
         $rate->seller= $username;
@@ -159,5 +160,36 @@ class sellerSignUpController extends Controller
 
         return redirect()->back()->with('message', 'Reported Successfully');
 
+    }
+
+    public function reportNote($id){
+        $update=sellerReport::find($id);
+        $update->action=1;
+        $update->save();
+        return redirect()->back();
+    }
+
+    
+    public function sallerProfileadminView($sellername){
+
+        $report=sellerReport::where('action','0')->get()->count();
+
+        $rate=new sellerRate;
+        $avgStar = sellerRate::where('seller',$sellername)->avg('value');
+        
+        
+        $info=seller_info::where('username',$sellername)->get();
+        
+        return view('sellerProfileAdminView', compact('avgStar', 'info','report'));
+    }
+
+    public function sallerBlock($username){
+        //$update = seller_info::where('username',$username)->firstOrFail();
+
+        $affected = DB::table('seller_infos')->where('username', $username)->update(['status' => 0]);
+
+        // $update->status=0;
+        // $update->save();
+        return redirect()->back();
     }
 }

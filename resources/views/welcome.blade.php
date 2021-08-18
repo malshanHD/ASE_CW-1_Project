@@ -99,7 +99,7 @@
             <div class="card" style="width: 100%;">
               <div class="card-body">
                 <img class="card-img-top" src="{{asset('AddItemsImages/'.$womencat->mainImage)}}" style="width:100%; height:100%;" alt="Card image cap"> 
-                   <p><b><a href="/BuyItem/{{$womencat->itemCode}}">{{$womencat->itemName}}</a></b></p>
+                   <p><b><a href="/BuyItem/{{$womencat->itemCode}}/{{$womencat->seller}}">{{$womencat->itemName}}</a></b></p>
                    <span>
                       <p>${{$womencat->itemPrice}}</p>
                    </span>         
@@ -124,7 +124,7 @@
             <div class="card" style="width: 100%;">
               <div class="card-body">
                 <img class="card-img-top" src="{{asset('AddItemsImages/'.$mensfa->mainImage)}}" style="width:100%; height:100%;" alt="Card image cap"> 
-                   <p><b><a href="/BuyItem/{{$mensfa->itemCode}}">{{$mensfa->itemName}}</a></b></p>
+                   <p><b><a href="/BuyItem/{{$mensfa->itemCode}}/{{$mensfa->seller}}">{{$mensfa->itemName}}</a></b></p>
                    <span>
                       <p>${{$mensfa->itemPrice}}</p>
                    </span>         
@@ -148,7 +148,7 @@
             <div class="card" style="width: 100%;">
               <div class="card-body">
                 <img class="card-img-top" src="{{asset('AddItemsImages/'.$jewellitem->mainImage)}}" style="width:100%; height:100%;" alt="Card image cap"> 
-                   <p><b><a href="/BuyItem/{{$jewellitem->itemCode}}">{{$jewellitem->itemName}}</a></b></p>
+                   <p><b><a href="/BuyItem/{{$jewellitem->itemCode}}/{{$jewellitem->seller}}">{{$jewellitem->itemName}}</a></b></p>
                    <span>
                       <p>${{$jewellitem->itemPrice}}</p>
                    </span>         
@@ -172,7 +172,7 @@
             <div class="card" style="width: 100%;">
               <div class="card-body">
                 <img class="card-img-top" src="{{asset('AddItemsImages/'.$babyitem->mainImage)}}" style="width:100%; height:100%;" alt="Card image cap"> 
-                   <p><b><a href="/BuyItem/{{$babyitem->itemCode}}">{{$babyitem->itemName}}</a></b></p>
+                   <p><b><a href="/BuyItem/{{$babyitem->itemCode}}/{{$babyitem->seller}}">{{$babyitem->itemName}}</a></b></p>
                    <span>
                       <p>${{$babyitem->itemPrice}}</p>
                    </span>         
@@ -196,7 +196,7 @@
             <div class="card" style="width: 100%;">
               <div class="card-body">
                 <img class="card-img-top" src="{{asset('AddItemsImages/'.$furniture->mainImage)}}" style="width:100%; height:100%;" alt="Card image cap"> 
-                   <p><b><a href="/BuyItem/{{$furniture->itemCode}}">{{$furniture->itemName}}</a></b></p>
+                   <p><b><a href="/BuyItem/{{$furniture->itemCode}}/{{$furniture->seller}}">{{$furniture->itemName}}</a></b></p>
                    <span>
                       <p>${{$furniture->itemPrice}}</p>
                    </span>         
@@ -219,7 +219,7 @@
             <div class="card" style="width: 100%;">
               <div class="card-body">
                 <img class="card-img-top" src="{{asset('AddItemsImages/'.$books->mainImage)}}" style="width:100%; height:100%;" alt="Card image cap"> 
-                   <p><b><a href="/BuyItem/{{$books->itemCode}}">{{$books->itemName}}</a></b></p>
+                   <p><b><a href="/BuyItem/{{$books->itemCode}}/{{$books->seller}}">{{$books->itemName}}</a></b></p>
                    <span>
                       <p>${{$books->itemPrice}}</p>
                    </span>         
@@ -242,7 +242,7 @@
             <div class="card" style="width: 100%;">
               <div class="card-body">
                 <img class="card-img-top" src="{{asset('AddItemsImages/'.$elecitems->mainImage)}}" style="width:100%; height:100%;" alt="Card image cap"> 
-                   <p><b><a href="/BuyItem/{{$elecitems->itemCode}}">{{$elecitems->itemName}}</a></b></p>
+                   <p><b><a href="/BuyItem/{{$elecitems->itemCode}}/{{$elecitems->seller}}">{{$elecitems->itemName}}</a></b></p>
                    <span>
                       <p>${{$elecitems->itemPrice}}</p>
                    </span>         

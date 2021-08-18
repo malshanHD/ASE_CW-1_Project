@@ -74,7 +74,7 @@ Route::get('/CategoryItem',function(){
     return view('categoryitemsearch');
 });
 
-route::get('/BuyItem/{itemCode}',[itemcontroller::class, 'itemView']);
+route::get('/BuyItem/{itemCode}/{seller}',[itemcontroller::class, 'itemView']);
 
 Route::get('/SignUpseller',function(){
     return view('sellerSignUp');
@@ -114,9 +114,24 @@ Route::middleware(['auth','buyer'])->group(function (){
 Route::middleware(['auth','admin'])->group(function (){
 
     Route::get('/adminReg',function(){
-        return view('adminregistration');
+        $report=App\Models\sellerReport::where('action','0')->get()->count();
+        
+        return view('adminregistration', compact('report'));
     });
     
+    Route::get('/reportData',function(){
+        $report=App\Models\sellerReport::where('action','0')->get()->count();
+        $repdata=App\Models\sellerReport::where('action','0')->get();
+        
+        return view('reportdetails', compact('report','repdata'));
+    });
+
+    Route::get('/notereport/{id}',[sellerSignUpController::class, 'reportNote']);
+    
+    Route::get('/SellerCheck/{sellername}',[sellerSignUpController::class, 'sallerProfileadminView']);
+
+    Route::get('/blcokUser/{username}',[sellerSignUpController::class, 'sallerBlock']);
+   
     
 });
 
