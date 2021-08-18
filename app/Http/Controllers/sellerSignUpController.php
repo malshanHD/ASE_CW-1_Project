@@ -14,9 +14,6 @@ class sellerSignUpController extends Controller
 {
     public function saveSellerInfo(Request $request)
     {
-
-        
-
         $sellerData=new seller_info;
 
         $ulevel=1;

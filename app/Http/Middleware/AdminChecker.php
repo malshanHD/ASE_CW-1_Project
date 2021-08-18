@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class BuyerChecker
+class AdminChecker
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class BuyerChecker
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->user_Level == 2){
+        if(Auth::user()->user_Level == 3){
             return $next($request);
         } else {
             return redirect()->to('/');
