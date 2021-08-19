@@ -43,8 +43,8 @@
 
 </head>
 <body>
- <!-- nav start-->
- <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background: linear-gradient(90deg, rgba(233,255,4,1) 0%, rgba(1,21,81,1) 0%, rgba(1,21,81,1) 30%, rgba(1,21,81,1) 61%, rgba(1,21,81,1) 100%);">
+ <!-- start navbar start-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background: linear-gradient(90deg, rgba(233,255,4,1) 0%, rgba(1,21,81,1) 0%, rgba(1,21,81,1) 30%, rgba(1,21,81,1) 61%, rgba(1,21,81,1) 100%);">
 <a class="navbar-brand" href="/"><img src="SystemImage/logov1.png" style="width: 200px;" alt=""></a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -64,13 +64,16 @@
         <a class="nav-link" href="#">Dashboard</a>
       </li>
       <li class="nav-item active">
+        <a class="nav-link" href="/CategoryAdd">Category Add</a>
+      </li>
+      <li class="nav-item active">
         <a class="nav-link" href="/adminReg">New Admin</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="#">Account</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#"> Reports <span class="text-danger">{{$report}}</span></a>
+        <a class="nav-link" href="/reportData"> Reports <span class="text-danger">{{$report}}</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="#">Logout</a>
@@ -78,7 +81,8 @@
     </ul>
   </div>
 </nav>
-<!-- nav end-->
+
+<!-- nav-bar end-->
 
 <div class="container">
     <div class="row justify-content-center">
