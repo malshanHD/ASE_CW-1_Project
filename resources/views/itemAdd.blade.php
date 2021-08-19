@@ -92,12 +92,6 @@
          </div>
          <div class="col-5">
             <div class="form-group mt-2">
-                <label for="bidStart">Bid Start Date</label> <span class="text-danger">*</span>
-                <input type="date" class="form-control border border-primary" id="bidStart"   name="bidStartdate" required>
-            </div>
-         </div>
-         <div class="col-5">
-            <div class="form-group mt-2">
                 <label for="bidend">Bid End Date</label> <span class="text-danger">*</span>
                 <input type="date" class="form-control border border-primary" id="bidend" name="Bidendate" required>
             </div>

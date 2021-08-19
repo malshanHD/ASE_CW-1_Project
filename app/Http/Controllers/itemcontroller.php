@@ -46,7 +46,6 @@ class itemcontroller extends Controller
             'itemQTY' => $request->Quantity,
             'itemMainCat' => $request->category,
             'itemSubCat' => $request->subcate,
-            'bidStart' => $request->bidStartdate,
             'bidEnd' => $request->Bidendate,
             'mainImage' => $imgName,
             'seller' => $request->sellerName,

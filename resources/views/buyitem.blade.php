@@ -79,11 +79,16 @@
 
                     @foreach($sellerInfo as $seller)
                     @if($seller->status)
-                    <input type="submit" value="Buy Now">
+                    <input type="submit" class="btn btn-success" value="Create Bid">
                     @else 
-                    <input type="submit" value="Buy Now" disabled>
+                    <input type="submit" class="btn btn-danger" value="Bid" disabled>
+                    <p class="text-danger">You cannot bid for this item because of this seller under system ban</p>
                     @endif
                     @endforeach
+                    <p><b>Shipping:</b> Free Shiping </p>
+                    <p><b>Delivery:</b> Estimated between Thu. Sep. 2 and Mon. Sep. 13 </p>
+                    <p><b>Payements:</b> Free Shiping </p>
+                    <p><b>Returns:</b> 30 day returns. Buyer pays for return shipping </p>
                     <input type="hidden" name="first_name" value="Saman">
                     <input type="hidden" name="last_name" value="Perera"><br>
                     <input type="hidden" name="email" value="malshanhd11@gmail.com">
@@ -97,10 +102,7 @@
                     
                     </form>
 
-                <p><b>Shipping:</b> Free Shiping </p>
-                <p><b>Delivery:</b> Estimated between Thu. Sep. 2 and Mon. Sep. 13 </p>
-                <p><b>Payements:</b> Free Shiping </p>
-                <p><b>Returns:</b> 30 day returns. Buyer pays for return shipping </p>
+                
                 
             </div>
 

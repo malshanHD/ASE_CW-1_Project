@@ -24,19 +24,14 @@ use Carbon\Carbon;
 Route::get('/', function () {
     $maincategory=App\Models\maincategory::all();
 
-    $WomensFashion=App\Models\item::where('itemMainCat','100')->orderBy('id','DESC')->take(6)->get();
-    $MensFashion=App\Models\item::where('itemMainCat','101')->orderBy('id','DESC')->take(6)->get();
-    $Jewelleryitems=App\Models\item::where('itemMainCat','102')->orderBy('id','DESC')->take(6)->get();
-    $Babyitems=App\Models\item::where('itemMainCat','103')->orderBy('id','DESC')->whereDate('bidStart', '<=', Carbon::now())->take(6)->get();
-    $Furnitures=App\Models\item::where('itemMainCat','104')->orderBy('id','DESC')->take(6)->get();
-    $Books=App\Models\item::where('itemMainCat','106')->orderBy('id','DESC')->take(6)->get();
+    $WomensFashion=App\Models\item::where('itemMainCat','100')->orderBy('id','DESC')->whereDate('bidEnd', '>=', Carbon::now())->take(6)->get();
+    $MensFashion=App\Models\item::where('itemMainCat','101')->orderBy('id','DESC')->whereDate('bidEnd', '>=', Carbon::now())->take(6)->get();
+    $Jewelleryitems=App\Models\item::where('itemMainCat','102')->orderBy('id','DESC')->whereDate('bidEnd', '>=', Carbon::now())->take(6)->get();
+    $Babyitems=App\Models\item::where('itemMainCat','103')->orderBy('id','DESC')->whereDate('bidEnd', '>=', Carbon::now())->take(6)->get();
+    $Furnitures=App\Models\item::where('itemMainCat','104')->orderBy('id','DESC')->whereDate('bidEnd', '>=', Carbon::now())->take(6)->get();
+    $Books=App\Models\item::where('itemMainCat','106')->orderBy('id','DESC')->whereDate('bidEnd', '>=', Carbon::now())->take(6)->get();
+    $Electronicitems=App\Models\item::where('itemMainCat','107')->orderBy('id','DESC')->whereDate('bidEnd', '>=', Carbon::now())->take(6)->get();
     
-
-    $Electronicitems=App\Models\item::where('itemMainCat','107')->orderBy('id','DESC')->take(6)->get();
-    
-    
-    
-
     return view('welcome', compact('MensFashion', 'maincategory','WomensFashion','Jewelleryitems','Babyitems','Furnitures','Books','Electronicitems'));
 });
 
