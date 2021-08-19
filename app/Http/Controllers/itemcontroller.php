@@ -69,6 +69,13 @@ class itemcontroller extends Controller
                 ]);
             }
         }
+
+        $bidData=new bidPay;
+        
+        $bidData->itemID= $request->code;
+        $bidData->buyerUsername= $request->sellerName;
+        $bidData->bidAmount= $request->Price;
+        $bidData->save();
         
 
         return redirect()->back()->with('message', 'Item Added Successfully!');
