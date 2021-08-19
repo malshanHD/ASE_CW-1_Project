@@ -70,7 +70,7 @@
         <a class="nav-link" href="#">Account</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#"> Reports <span class="text-danger">{{$report}}</span></a>
+        <a class="nav-link" href="/reportData"> Reports <span class="text-danger">{{$report}}</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="#">Logout</a>

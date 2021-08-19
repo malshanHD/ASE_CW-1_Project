@@ -149,12 +149,15 @@ Route::get('/BuyerProfile',function(){
     return view('buyerprofile');
 });
 
-Route::POST('/payment',[bidPayment::class, 'bidSave']);
+Route::POST('/sucess',[bidPayment::class, 'paymentProcess']);
+
 
 Route::POST('/sellerReported',[sellerSignUpController::class, 'sellerReport']);
 
 
-
+route::get('/payment', function(){
+    return view('paymentView');
+});
 
 
 

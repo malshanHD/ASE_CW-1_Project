@@ -56,11 +56,11 @@
                 <form method="post" action="https://sandbox.payhere.lk/pay/checkout"> 
 
                     <input type="hidden" name="merchant_id" value="1218301">   
-                    <input type="hidden" name="return_url" value="http://meleven.ml/">
+                    <input type="hidden" name="return_url" value="http://127.0.0.1:8000/">
                     <input type="hidden" name="cancel_url" value="http://sample.com/cancel">
-                    <input type="hidden" name="notify_url" value="localhost:8000/payment">  
+                    <input type="hidden" name="notify_url" value="http://127.0.0.1:8000/sucess">  
 
-                    <input type="hidden" name="order_id" value="Registration">
+                    <input type="hidden" name="order_id" value="1">
                     <input type="hidden" name="items" value="{{$data->itemName}}">
                     <input type="hidden" name="currency" value="LKR">
 
@@ -84,8 +84,8 @@
                     @endforeach
                     <input type="hidden" name="first_name" value="Saman">
                     <input type="hidden" name="last_name" value="Perera"><br>
-                    <input type="hidden" name="email" value="samanp@gmail.com">
-                    <input type="hidden" name="phone" value="0771234567"><br>
+                    <input type="hidden" name="email" value="malshanhd11@gmail.com">
+                    <input type="hidden" name="phone" value="0754475949"><br>
                     <input type="hidden" name="address" value="No.1, Galle Road">
                     <input type="hidden" name="city" value="Colombo">
                     <input type="hidden" name="country" value="Sri Lanka">
@@ -217,6 +217,7 @@
             document.getElementById("total").value = totalValue;
         }
 </script>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
