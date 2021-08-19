@@ -70,10 +70,7 @@ Route::post('/newAdmin',[adminController::class, 'saveAdminInfo']);
 
 
 
-Route::get('/CategoryAdd',function(){
-    $categoryType=App\Models\maincategory::all();
-    return view('CategoryAdd')->with('cat',$categoryType);
-});
+
 
 Route::get('/CategoryItem',function(){
     return view('categoryitemsearch');
@@ -95,9 +92,7 @@ Route::get('/returnItem',function(){
 });
 
 
-Route::get('/ChangeAdvertiestment',function(){
-    return view('AdminAddChange');
-});
+
 
 
 Route::middleware(['auth','seller'])->group(function (){
@@ -129,6 +124,18 @@ Route::middleware(['auth','admin'])->group(function (){
         $repdata=App\Models\sellerReport::where('action','0')->get();
         
         return view('reportdetails', compact('report','repdata'));
+    });
+
+    Route::get('/CategoryAdd',function(){
+        $report=App\Models\sellerReport::where('action','0')->get()->count(); 
+        $cat=App\Models\maincategory::all();
+        return view('CategoryAdd', compact('report','cat'));
+    });
+
+    Route::get('/ChangeAdvertiestment',function(){
+
+        $report=App\Models\sellerReport::where('action','0')->get()->count();  
+        return view('AdminAddChange', compact('report'));
     });
 
     Route::get('/notereport/{id}',[sellerSignUpController::class, 'reportNote']);

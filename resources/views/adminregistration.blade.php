@@ -64,6 +64,9 @@
         <a class="nav-link" href="#">Dashboard</a>
       </li>
       <li class="nav-item active">
+        <a class="nav-link" href="/CategoryAdd">Category Add</a>
+      </li>
+      <li class="nav-item active">
         <a class="nav-link" href="/adminReg">New Admin</a>
       </li>
       <li class="nav-item active">
