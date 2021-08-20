@@ -126,7 +126,7 @@ Route::middleware(['auth','admin'])->group(function (){
         
         return view('adminregistration', compact('report'));
     });
-    
+    // Rout get report data
     Route::get('/reportData',function(){
         $report=App\Models\sellerReport::where('action','0')->get()->count();
         $repdata=App\Models\sellerReport::where('action','0')->get();
