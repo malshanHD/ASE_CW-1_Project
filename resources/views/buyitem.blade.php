@@ -34,7 +34,7 @@
 <div class="container">
     <div class="row">
         <div class="col mt-5">
-            <h4>Buy Items</h4>
+            <h4>Bid Items</h4>
         </div>
     </div>
 </div>

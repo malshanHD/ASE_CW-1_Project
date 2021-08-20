@@ -43,7 +43,7 @@
 
 </head>
 <body>
- <!-- nav start-->
+ <!-- Start admin nav-bar-->
  <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background: linear-gradient(90deg, rgba(233,255,4,1) 0%, rgba(1,21,81,1) 0%, rgba(1,21,81,1) 30%, rgba(1,21,81,1) 61%, rgba(1,21,81,1) 100%);">
 <a class="navbar-brand" href="/"><img src="SystemImage/logov1.png" style="width: 200px;" alt=""></a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,9 +81,9 @@
     </ul>
   </div>
 </nav>
-<!-- nav end-->
+<!-- end admin nav-bar-->
 
-<!-- Sign-up form start-->
+<!--Startadmin  Sign-up form start-->
 <div class="container mt-3"> 
     <div class="col-md-3"></div>
     <div class="col-md-12" id="form">
@@ -91,7 +91,8 @@
       {{csrf_field()}}
            <h1>Welcome to Sams & Sams!</h1>
 
-           <!-- error message -->
+           <!-- show alert message -->
+           
             @foreach($errors->all() as $error)
                <div class="alert alert-danger" role="alert">
                {{$error}}
@@ -103,6 +104,9 @@
                {{ session()->get('message') }}
                </div>
             @endif
+             <!-- End alert message -->
+
+                <!-- start form -->
 
                   <div class="row">
                            <div class="col-md-4 mt-5">
@@ -146,14 +150,15 @@
                 <input type="submit" value="Save" class="btn btn-primary" name="btnSave">
 
       </form>
+      <!-- End form -->
       </div>
      </div>
     </div>
-  <!-- Sign-up form end-->
+  <!-- end Sign-up form -->
 
-    <!--footer start-->
+    <!--Start footer-->
     @include('include.footer')
-    <!--footer end-->
+    <!--End footer-->
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
