@@ -83,7 +83,7 @@ class BuyerSignUpController extends Controller
         ->get();
 
         $unpaid=DB::table('bid_pays')
-        ->select('items.itemCode','items.itemName','items.mainImage','bid_pays.bidAmount','bid_pays.deposite','bid_pays.bidID','bid_pays.buyerUsername')
+        ->select('items.itemCode','items.itemName','items.seller','items.mainImage','bid_pays.bidAmount','bid_pays.deposite','bid_pays.bidID','bid_pays.buyerUsername')
         ->join('items','items.itemCode','=','bid_pays.itemID')
         ->where(['bid_pays.buyerUsername' => $name, 'winner' => '1', 'fullPayment' => '0'])
         ->get();
@@ -91,6 +91,10 @@ class BuyerSignUpController extends Controller
        
         return view('buyerprofile', compact('info','itemData','winItem','unpaid'));
 
+    }
+
+    public function dataInsert(Request $request){
+        return redirect('/bidwinPay')->with('message', 'Item Added Successfully!');
     }
 
 }

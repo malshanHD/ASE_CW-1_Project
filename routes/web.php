@@ -67,6 +67,8 @@ Route::post('/sellerInfoSave',[sellerSignUpController::class, 'saveSellerInfo'])
 Route::post('/buyerSave',[BuyerSignUpController::class, 'saveBuyerInfo']);
 Route::post('/newAdmin',[adminController::class, 'saveAdminInfo']);
 
+Route::post('/fullPayment',[BuyerSignUpController::class, 'dataInsert']);
+
 
 // End Route post mathods
 
@@ -115,6 +117,7 @@ Route::middleware(['auth','buyer'])->group(function (){
     
 // Route post bid win Pay
     Route::post('/bidwinPay',[bidPayment::class, 'bidWinPay']);
+    
     
 
  });
