@@ -119,6 +119,11 @@
                         <div class="card">
                             <div class="card-header p-0">
                                 <h2 class="mb-0"> <button class="btn btn-light btn-block text-left p-3 rounded-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                @if(session()->has('message'))
+                                    <div class="alert alert-success">
+                                        {{ session()->get('message') }}
+                                    </div>
+                                @endif
                                         <div class="d-flex align-items-center justify-content-between"> <span>Credit card</span>
                                             <div class="icons"> <img src="https://i.imgur.com/2ISgYja.png" width="30"> <img src="https://i.imgur.com/W1vtnOV.png" width="30"> <img src="https://i.imgur.com/35tC99g.png" width="30"> <img src="https://i.imgur.com/2ISgYja.png" width="30"> </div>
                                         </div>
@@ -157,7 +162,7 @@
                                     <input type="hidden" name="deposite" id="deposite" value="{{$diposite}}">
                                     <input type="hidden" name="bidAmount" id="amount" value="{{$bidAmount}}">
                                     <input type="hidden" name="bidderName" value="{{$bidderName}}">
-                                    
+                                    <input type="hidden" name="sellername" value="{{$sellerName}}">
                                     <input type="hidden" name="rate" id="rate" value="2">
                                     <input type="hidden" id="companyCharge" name="companyCharge">
                                     <input type="hidden" id="sellerTot" name="sellerCharge">
@@ -189,8 +194,9 @@
             
             sellerValue=Number(numVal1)-Number(totalValue);
 
-            document.getElementById("companyCharge").innerHTML = totalValue;
-            document.getElementById("sellerTot").innerHTML = sellerValue;
+            document.getElementById("companyCharge").value = totalValue;
+            document.getElementById("sellerTot").value = sellerValue;
+
          }
 
       </script>

@@ -78,8 +78,9 @@ class bidPayment extends Controller
         $diposite=$request->deposite;
         $bidAmount=$request->totalPay;
         $bidderName=$request->bidderName;
+        $sellerName =$request->sellerName;
         
         
-        return view('itemPayment', compact('bidID','diposite','bidAmount','bidderName'));
+        return view('itemPayment', compact('bidID','diposite','bidAmount','bidderName','sellerName'));
     }
 }
