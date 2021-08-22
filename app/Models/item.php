@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class item extends Model
 {
-    protected $fillable = [ 'itemCode', 'itemName', 'itemDescription', 'itemPrice', 'itemWarrenty', 'itemQTY', 'itemMainCat', 'itemSubCat', 'mainImage', 'seller'];
+    protected $fillable = [ 'itemCode', 'itemName', 'itemDescription', 'itemPrice', 'itemWarrenty', 'itemQTY', 'itemMainCat', 'itemSubCat','bidStart','bidEnd' , 'mainImage', 'seller'];
 }

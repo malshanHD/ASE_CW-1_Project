@@ -53,8 +53,8 @@
         <div class="card" style="width: 100%; height:100%; background: rgb(241,241,241)">
             <div class="card-body">
                 <h5 class="card-title">{{$data->itemName}}</h5>
-                <form method="post" action="https://sandbox.payhere.lk/pay/checkout"> 
-
+                <form method="post" action="/bidPayment"> 
+                {{csrf_field()}}
                     <input type="hidden" name="merchant_id" value="1218301">   
                     <input type="hidden" name="return_url" value="http://127.0.0.1:8000/">
                     <input type="hidden" name="cancel_url" value="http://sample.com/cancel">
@@ -64,16 +64,18 @@
                     <input type="hidden" name="items" value="{{$data->itemName}}">
                     <input type="hidden" name="currency" value="LKR">
 
-                    <p>BID Starting Price : LKR {{$data->itemPrice}} </p>
+                    <p>BID Starting Price : <span class="font-weight-bold">LKR {{$data->itemPrice}}</span> </p>
                     <input type="hidden" name="bidStart" value="{{$data->itemPrice}}" id="bidStart">
                     <input type="hidden" name="bdPer" id="bdPer" value="20">
                     <input type="hidden" name="amount" id="total">
+                    
+                    @foreach($CurrentBid as $bidPrice)
+                    <p>Current Bid Price : <span class="font-weight-bold">LKR {{$bidPrice->bidAmount}}</span> </p>
+                    
+                    <input type="number" min="{{$bidPrice->bidAmount}}" name="bidding" class="border border-primary" id="bidding" onchange="getPrice()">
+                    <p class="text-danger font-italic font-weight-bold">Enter LKR {{$bidPrice->bidAmount}} or more</p>
 
-
-
-                    <p>Current Bid Price : LKR 50 </p>
-                    <input type="text" name="bidding" class="border border-primary" id="bidding" onchange="getPrice()">
-                    <p>Enter LKR 51 or more</p>
+                    @endforeach
 
                     @foreach($sellerInfo as $seller)
                     @if($seller->status)
@@ -89,7 +91,9 @@
                     <input type="hidden" name="address" value="No.1, Galle Road">
                     <input type="hidden" name="city" value="Colombo">
                     <input type="hidden" name="country" value="Sri Lanka">
-
+                    
+                    <input type="hidden" name="itemCode" value="{{$data->itemCode}}">
+                    <input type="hidden" name="itemBuyer" value="{{ Auth::user()->name }}">
                     
                     </form>
 

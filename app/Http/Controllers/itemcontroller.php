@@ -8,6 +8,7 @@ use App\Models\seller_info;
 use App\Models\ItemImage;
 use App\Models\comment;
 use App\Models\cmntreply;
+use App\Models\bidPay;
 
 use DB;
 
@@ -45,6 +46,8 @@ class itemcontroller extends Controller
             'itemQTY' => $request->Quantity,
             'itemMainCat' => $request->category,
             'itemSubCat' => $request->subcate,
+            'bidStart' => $request->bidStartdate,
+            'bidEnd' => $request->Bidendate,
             'mainImage' => $imgName,
             'seller' => $request->sellerName,
         ]);
@@ -70,6 +73,7 @@ class itemcontroller extends Controller
 
         return redirect()->back()->with('message', 'Item Added Successfully!');
     }
+
     public function itemView($itemCode,$seller){
         $itemRetrive=$itemCode;
         
@@ -88,8 +92,9 @@ class itemcontroller extends Controller
 
         $cmnt=comment::where('itemCode',$itemRetrive)->get();
 
-       
+        $CurrentBid=bidPay::where('itemID',$itemRetrive)->orderBy('bidAmount', 'DESC')->take(1)->get();
+        
 
-        return view('buyitem', compact('images', 'datas','item','cmnt','sellerInfo'));
+        return view('buyitem', compact('images', 'datas','item','cmnt','sellerInfo','CurrentBid'));
     }
 }
