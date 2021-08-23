@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\bidPay;
+use App\Models\item;
+use App\Models\buyerUser;
 
 class bidPayment extends Controller
 {
@@ -23,15 +25,16 @@ class bidPayment extends Controller
     public function paymentDataSave(Request $request){
         $bidData=new bidPay;
 
-
+        
 
         $bidData->itemID= $request->itemID;
         $bidData->buyerUsername= $request->buyerName;
         $bidData->bidAmount= $request->bidAmount;
         $bidData->deposite= $request->bidDeposite;
         $bidData->save();
+
+        return redirect('/');
         
-        return view('buyerprofile');
     }
 
     public function paymentProcess(Request $request){
@@ -61,5 +64,22 @@ class bidPayment extends Controller
         //     $category->save();
         // }
 
+    }
+
+    public function BidWinner($itemCode){
+        $datas=item::where('itemCode',$itemCode)->get();
+        $winner=bidPay::where('itemID',$itemCode)->orderBy('bidAmount', 'DESC')->take(1)->get();
+
+        return view('bidWinner', compact('datas', 'winner'));
+    }
+
+    public function bidWinPay(Request $request){
+        $bidID=$request->bidID;
+        $diposite=$request->deposite;
+        $bidAmount=$request->totalPay;
+        $bidderName=$request->bidderName;
+        
+        
+        return view('itemPayment', compact('bidID','diposite','bidAmount','bidderName'));
     }
 }

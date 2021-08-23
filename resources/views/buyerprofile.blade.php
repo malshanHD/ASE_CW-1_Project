@@ -34,40 +34,47 @@
         </div>        
       </div>      
 </form>
-</head>
-<body>
+
+@foreach($info as $data)
 <div class="container-fluid">
     <div class="row ">
         <div class="col-12">
         <div class="card mt-4" style="width: 100%; ">
             <div class="card-body">
-                <img src="itemimage/banner.PNG " style="width:100%; height:175px;" alt="">
+                <img src="{{asset('/buyer_images/'.$data->profilePicture)}}" style="width:100%; height:175px;" alt="">
             </div>
         </div>
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-        <div class="card mt-2 border-dark" style="width:100%; background: rgb(241,241,241);">
-
-                <h5 class="card-title ml-2 mr-2 mt-3 text-dark"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Buyer Image</h5>
-                
-                    <div class="text ml-2 mr-2 mt-3 float-left">
-                    <img src="itemimage/user.jpg" class="rounded " alt="...">
-                    
-                    </div>
-                                    
-  
-            
-              <h5 class="card-title ml-2 mr-2 mt-3 text-dark"></h5>
-            <p class="text-center"><a class="text-danger font-weight-bold" href="#">Report this buyer<i class="fa fa-ban" aria-hidden="true"></i></a></p>
-
-
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-2 align-self-center">
+            <div class="card mt-2 border-dark" style="width:100%; background: rgb(241,241,241);">
+                <h5 class="card-title ml-2 mr-2 mt-3 text-dark"><i class="fa fa-user-circle-o text-success" aria-hidden="true"></i> {{$data->firstname}} {{$data->lastname}}</h5>
+                <div class="text ml-2 mr-2 mt-3 float-left">
+                    <img src="{{asset('/buyer_images/'.$data->profilePicture)}}" style="width:100%;" class="rounded " alt="...">
+                </div>
+                 <h5 class="card-title ml-2 mr-2 mt-3 text-dark"></h5>
             </div> 
-          </div>
         </div>
+        <div class="col-4 align-self-center" style="width:100%; background: rgb(241,241,241);">
+            <p class="font-weight-bold mt-2">First Name : <span class="text-primary">{{$data->firstname}}</span></p>
+            <p class="font-weight-bold">Last Name : <span class="text-primary">{{$data->lastname}}</span></p>
+            <p class="font-weight-bold">Gender : <span class="text-primary">{{$data->gender}}</span></p>
+            <p class="font-weight-bold">Email : <span class="text-primary">{{$data->email}}</span></p>
+            <p class="font-weight-bold">Date of birthday : <span class="text-primary">{{$data->dob}}</span></p>
+            <p class="font-weight-bold">Contact Number : <span class="text-primary">{{$data->phnNumber}}</span></p>
+        </div>
+        <div class="col-4 align-self-center" style="width:100%; background: rgb(241,241,241);">
+            <p class="font-weight-bold mt-2">Country : <span class="text-primary">{{$data->country}}</span></p>
+            <p class="font-weight-bold">Street Address 1 : <span class="text-primary">{{$data->streetadd01}}</span></p>
+            <p class="font-weight-bold">Street Address 2 : <span class="text-primary">{{$data->streetadd02}}</span></p>
+            <p class="font-weight-bold">City : <span class="text-primary">{{$data->city}}</span></p>
+            <p class="font-weight-bold">Province : <span class="text-primary">{{$data->province}}</span></p>
+            <p class="font-weight-bold">Zip code : <span class="text-primary">{{$data->zipcode}}</span></p>
+        </div>
+    </div>
 
 
                 
@@ -77,120 +84,99 @@
         </div>
     </div>
 </div>
+
 <div class="container">
-                <div class="row">
-                    <div class="col mt-3">
-                    <label><b>Bid Items </b></label> 
-                    </div>
+    <div class="row">
+        <div class="col mt-3">
+            <label><b>Un-paid Items</b></label> 
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row row-horizon">
+    @foreach($unpaid as $unpaidItem)
+        <form action="/bidwinPay" method="post">
+        {{csrf_field()}}
+            <div class="col-3 mt-3">
+                <div class="">
+                    <div class="card" style="width: 100%; background: rgb(241,241,241);">
+                        <div class="card-header card-title">{{$unpaidItem->itemName}}</div>
+                        <div class="card-body">
+                            
+                        <img class="card-img-top" src="{{asset('AddItemsImages/'.$unpaidItem->mainImage)}}" style="width:100%; height:100%;" alt="Card image cap"> 
+                            <div class="card-footer">
+
+                                <input type="hidden" value="{{$unpaidItem->bidAmount}}" name="totalPay">
+                                <input type="hidden" value="{{$unpaidItem->deposite}}" name="deposite">
+                                <input type="hidden" value="{{$unpaidItem->bidID}}" name="bidID">
+                                <input type="hidden" value="{{$unpaidItem->buyerUsername}}" name="bidderName">
+
+                                <input type="submit" class="btn btn-block btn-success" value="LKR {{$unpaidItem->bidAmount}}">
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </form>
+    @endforeach
+    </div>
+</div>
+
 <div class="container">
-  <div class="row">
-    <div class="col-3 mt-3">
-    <div class="card" style="width: 100%; background: rgb(241,241,241);">
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                
-                <p class="card-text"></p>
-                
-            </div>
+    <div class="row">
+        <div class="col mt-3">
+            <label><b>Bid Items </b></label> 
         </div>
-        
     </div>
-    <div class="col-3 mt-3">
-    <div class="card" style="width: 100%; background: rgb(241,241,241);">
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                
-                <p class="card-text"></p>
-                
-            </div>
-        </div>
-        
-    </div>
-    <div class="col-3 mt-3">
-    <div class="card" style="width: 100%; background: rgb(241,241,241);">
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                
-                <p class="card-text"></p>
-                
-            </div>
-        </div>
-        
-    </div>
-    <div class="col-3 mt-3">
-    <div class="card" style="width: 100%; background: rgb(241,241,241);">
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                
-                <p class="card-text"></p>
-                
-            </div>
-        </div>
-        
-    </div>
-  </div>
 </div>
 <div class="container">
-                <div class="row">
-                    <div class="col mt-3">
-                    <label><b>Winning Items </b></label> 
-                    </div>
+    <div class="row row-horizon">
+    @foreach($itemData as $biddingItem)
+        <div class="col-3 mt-3">
+            <div class="">
+                <div class="card" style="width: 100%; background: rgb(241,241,241);">
+                    <div class="card-header card-title">{{$biddingItem->itemName}}</div>
+                    <div class="card-body">
+                        
+                    <img class="card-img-top" src="{{asset('AddItemsImages/'.$biddingItem->mainImage)}}" style="width:100%; height:100%;" alt="Card image cap"> 
+                        <p class="card-text"></p>
+                        
                     </div>
                 </div>
             </div>
-            <div class="container">
-  <div class="row">
-    <div class="col-3 mt-3">
-    <div class="card" style="width: 100%; background: rgb(241,241,241);">
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                
-                <p class="card-text"></p>
-                
-            </div>
         </div>
-        
+    @endforeach
     </div>
-    <div class="col-3 mt-3">
-    <div class="card" style="width: 100%; background: rgb(241,241,241);">
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                
-                <p class="card-text"></p>
-                
-            </div>
-        </div>
-        
-    </div>
-    <div class="col-3 mt-3">
-    <div class="card" style="width: 100%; background: rgb(241,241,241);">
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                
-                <p class="card-text"></p>
-                
-            </div>
-        </div>
-        
-    </div>
-    <div class="col-3 mt-3">
-    <div class="card" style="width: 100%; background: rgb(241,241,241);">
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                
-                <p class="card-text"></p>
-                
-            </div>
-        </div>
-        
-    </div>
-  </div>
 </div>
-
-
+<div class="container">
+    <div class="row">
+        <div class="col mt-3">
+            <label><b>Winning Items </b></label> 
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row row-horizon">
+    @foreach($winItem as $winner)
+        <div class="col-3 mt-3">
+        <div class="">
+                <div class="card" style="width: 100%; background: rgb(241,241,241);">
+                    <div class="card-header card-title">{{$winner->itemName}}</div>
+                    <div class="card-body">
+                        
+                    <img class="card-img-top" src="{{asset('AddItemsImages/'.$winner->mainImage)}}" style="width:100%; height:100%;" alt="Card image cap"> 
+                        <div class="card-footer">
+                        <p class="card-text font-weight-blod text-center">LKR {{$winner->bidAmount}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+    </div>
+</div>
+@endforeach
 
 @include('include.footer')
 

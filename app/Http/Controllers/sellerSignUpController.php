@@ -7,6 +7,9 @@ use App\Models\seller_info;
 use App\Models\User;
 use App\Models\sellerRate;
 use App\Models\sellerReport;
+use App\Models\sellerFeedback;
+use App\Models\item;
+use Carbon\Carbon;
 use DB;
 
 
@@ -66,8 +69,13 @@ class sellerSignUpController extends Controller
         
         
         $info=seller_info::where('username',$seller)->get();
+        $feedbacks=sellerFeedback::where('seller',$seller)->get();
+
+        $items=item::where('seller',$seller)->orderBy('itemCode','DESC')->whereDate('bidEnd', '>=', Carbon::now())->take(6)->get();
         
-        return view('sellerprofile', compact('avgStar', 'info'));
+        $endBid=item::where('seller',$seller)->orderBy('itemCode','DESC')->whereDate('bidEnd', '<=', Carbon::now())->take(6)->get();
+        
+        return view('sellerprofile', compact('avgStar', 'info','feedbacks','items','endBid'));
 
     }
     
@@ -190,6 +198,15 @@ class sellerSignUpController extends Controller
 
         // $update->status=0;
         // $update->save();
+        return redirect()->back();
+    }
+
+    public function sellerFeedbackSave(Request $request){
+        $sellerFeedback =  new sellerFeedback;
+        $sellerFeedback->seller=$request->sellerName;
+        $sellerFeedback->user=$request->user;
+        $sellerFeedback->Feedback=$request->feedback;
+        $sellerFeedback->save();
         return redirect()->back();
     }
 }

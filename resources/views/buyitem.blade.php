@@ -201,7 +201,7 @@
             <div class="card" style="width: 100%;">
               <div class="card-body">
                 <img class="card-img-top" src="{{asset('AddItemsImages/'.$items->mainImage)}}" style="width:100%; height:100%;" alt="Card image cap"> 
-                   <p><b><a href="/BuyItem/{{$items->itemCode}}">{{$items->itemName}}</a></b></p>
+                   <p><b><a href="/BuyItem/{{$items->itemCode}}/{{$items->seller}}">{{$items->itemName}}</a></b></p>
                    <span>
                       <p>${{$items->itemPrice}}</p>
                    </span>         
