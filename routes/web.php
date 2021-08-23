@@ -145,7 +145,7 @@ Route::middleware(['auth','admin'])->group(function (){
 Route::get('/sallerprofile/{seller}',[sellerSignUpController::class, 'sallerProfile']);
 
 Route::get('/ReportSeller/{seller}',[sellerSignUpController::class, 'reportSellerView']);
-
+    
 
 
 Route::get('/Help',function(){
