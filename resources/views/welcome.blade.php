@@ -29,13 +29,61 @@
     
       <div class="" >
         <ul class="list-group list-group-flush">
-          <li class="list-group-item font-weight-bold"><a class="text-dark" href="#" >Women's Fashion</a></li>
-          <li class="list-group-item font-weight-bold"><a class="text-dark" href="#">Men's Fashion</a></li>
-          <li class="list-group-item font-weight-bold"><a class="text-dark" href="#">Jewellery Items</a></li>
-          <li class="list-group-item font-weight-bold"><a class="text-dark" href="#">Baby Items</a></li>
-          <li class="list-group-item font-weight-bold"><a class="text-dark" href="#">Furnitures</a></li>
-          <li class="list-group-item font-weight-bold"><a class="text-dark" href="#">Books</a></li>
-          <li class="list-group-item font-weight-bold"><a class="text-dark" href="#">Electronic Items</a></li>
+          <li class="list-group-item font-weight-bold"><a class="text-dark dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Women's Fashion</a>
+
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                @foreach($womSub as $womensSubCat)
+                    <a class="dropdown-item" href="catlist/{{$womensSubCat->subcat_id }}">{{$womensSubCat->subcategoryName}}</a>
+                @endforeach
+            </div>
+        </li>
+
+        <li class="list-group-item font-weight-bold"><a class="text-dark dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Men's Fashion</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                @foreach($menSub as $mensSubCat)
+                    <a class="dropdown-item" href="catlist/{{$mensSubCat->subcat_id }}">{{$mensSubCat->subcategoryName}}</a>
+                @endforeach
+            </div>
+        </li>
+
+        <li class="list-group-item font-weight-bold"><a class="text-dark dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Jewellery Items</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                @foreach($jewllerySub as $jewllerySubCat)
+                    <a class="dropdown-item" href="catlist/{{$jewllerySubCat->subcat_id }}">{{$jewllerySubCat->subcategoryName}}</a>
+                @endforeach
+            </div>
+        </li>
+
+          <li class="list-group-item font-weight-bold"><a class="text-dark dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Baby Items</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  @foreach($babySub as $babySubCat)
+                      <a class="dropdown-item" href="catlist/{{$babySubCat->subcat_id }}">{{$babySubCat->subcategoryName}}</a>
+                  @endforeach
+            </div>       
+          </li>
+
+          <li class="list-group-item font-weight-bold"><a class="text-dark dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Furnitures</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  @foreach($FurnituresSub as $FurnituresSubCat)
+                      <a class="dropdown-item" href="catlist/{{$FurnituresSubCat->subcat_id }}">{{$FurnituresSubCat->subcategoryName}}</a>
+                  @endforeach
+            </div> 
+          </li>
+
+          <li class="list-group-item font-weight-bold"><a class="text-dark dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Books</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  @foreach($BooksSub as $BooksSubCat)
+                      <a class="dropdown-item" href="catlist/{{$BooksSubCat->subcat_id }}">{{$BooksSubCat->subcategoryName}}</a>
+                  @endforeach
+            </div> 
+          </li>
+          <li class="list-group-item font-weight-bold"><a class="text-dark dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Electronic Items</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  @foreach($ElectronicSub as $ElectronicSubCat)
+                      <a class="dropdown-item" href="catlist/{{$ElectronicSubCat->subcat_id }}">{{$ElectronicSubCat->subcategoryName}}</a>
+                  @endforeach
+            </div>
+          </li>
         </ul>
       </div>
     </div>

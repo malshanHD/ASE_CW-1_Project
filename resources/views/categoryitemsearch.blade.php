@@ -32,51 +32,20 @@
     </div>
 </div>
 <div class="container mt-5" style="background: rgb(241,241,241);">
-    <div class="row">
+<div class="row">
+    @foreach($catItem as $items)
           <div class="col-12 col-md-3 mb-2">
             <div class="card" style="width: 100%;">
               <div class="card-body">
-                <img class="card-img-top" src="" style="width:100%; height:100%;" alt="Card image cap"> 
-                   <p><b><a href=""></a></b></p>
+                <img class="card-img-top" src="{{asset('AddItemsImages/'.$items->mainImage)}}" style="width:100%; height:100%;" alt="Card image cap"> 
+                   <p><b><a href="/BuyItem/{{$items->itemCode}}/{{$items->seller}}">{{$items->itemName}}</a></b></p>
                    <span>
-                      <p></p>
+                      <p>${{$items->itemPrice}}</p>
                    </span>         
               </div>
             </div>
           </div> 
-          <div class="col-12 col-md-3 mb-2">
-            <div class="card" style="width: 100%;">
-              <div class="card-body">
-                <img class="card-img-top" src="" style="width:100%; height:100%;" alt="Card image cap"> 
-                   <p><b><a href=""></a></b></p>
-                   <span>
-                      <p></p>
-                   </span>         
-              </div>
-            </div>
-          </div> 
-          <div class="col-12 col-md-3 mb-2">
-            <div class="card" style="width: 100%;">
-              <div class="card-body">
-                <img class="card-img-top" src="" style="width:100%; height:100%;" alt="Card image cap"> 
-                   <p><b><a href=""></a></b></p>
-                   <span>
-                      <p></p>
-                   </span>         
-              </div>
-            </div>
-          </div> 
-          <div class="col-12 col-md-3 mb-2">
-            <div class="card" style="width: 100%;">
-              <div class="card-body">
-                <img class="card-img-top" src="" style="width:100%; height:100%;" alt="Card image cap"> 
-                   <p><b><a href=""></a></b></p>
-                   <span>
-                      <p></p>
-                   </span>         
-              </div>
-            </div>
-          </div> 
+      @endforeach 
     </div>
 </div>
 
