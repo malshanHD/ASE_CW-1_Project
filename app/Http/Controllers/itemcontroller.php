@@ -103,4 +103,10 @@ class itemcontroller extends Controller
 
         return view('buyitem', compact('images', 'datas','item','cmnt','sellerInfo','CurrentBid'));
     }
+
+    public function searchitem(){
+        $serach = $_GET['Search'];
+        $item = item::where('itemName','LIKE','%'.$serach.'%')->GET();
+        return view('search')->with('items',$item);
+    }
 }

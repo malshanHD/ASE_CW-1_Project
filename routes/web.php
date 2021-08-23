@@ -190,6 +190,11 @@ route::get('/payment', function(){
     return view('paymentView');
 });
 
+route::get('/Search', function(){
+    return view('search');
+});
+
+route::get('/Searchitem',[itemcontroller::class, 'searchitem']);
 
 //Route get Seller Ratings
 route::get('/rate/1/{name}/{username}',[sellerSignUpController::class, 'sellerRatingStrong']);
