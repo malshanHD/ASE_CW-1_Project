@@ -94,7 +94,7 @@ class itemcontroller extends Controller
        
        // $itemCatID=$sug;
        
-        $item = item::orderBy('id', 'DESC')->take(4)->get();
+        $item = item::orderBy('itemCode', 'DESC')->take(4)->get();
 
         $cmnt=comment::where('itemCode',$itemRetrive)->get();
 

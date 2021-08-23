@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\subcategory;
+use App\Models\seller_info;
 use DB;
+use Auth;
 
 class subcatcontroller extends Controller
 {
@@ -23,11 +25,15 @@ class subcatcontroller extends Controller
         return redirect()->back()->with('message', 'Item Added Successfully!');
     }
 
-    public function getCountries()
+    public function getCountries($name)
     {
         $categoryType = DB::table('maincategories')->pluck("categoryName","id");
         $count2 = DB::table('items')->count();
-        return view('itemAdd',compact('categoryType','count2'));
+
+        $SellerInfo=DB::table('seller_infos')->where('username',$name)->first();
+       
+
+        return view('itemAdd',compact('categoryType','count2','SellerInfo'));
     }
 
     public function getStates($id) 

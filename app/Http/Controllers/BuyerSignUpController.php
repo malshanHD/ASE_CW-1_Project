@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\buyerUser;
 use App\Models\User;
+use DB;
 
 
 class BuyerSignUpController extends Controller
@@ -64,4 +65,36 @@ class BuyerSignUpController extends Controller
         
         return view('auth.register', compact('ulevel', 'passusername','passemail'));
     }
+
+    public function buyerProfile($name){
+       
+        $info=buyerUser::where('username',$name)->get();
+
+        $itemData=DB::table('bid_pays')
+        ->select('items.itemCode','items.itemName','items.mainImage','bid_pays.bidAmount')
+        ->join('items','items.itemCode','=','bid_pays.itemID')
+        ->where(['bid_pays.buyerUsername' => $name])
+        ->get();
+
+        $winItem=DB::table('bid_pays')
+        ->select('items.itemCode','items.itemName','items.mainImage','bid_pays.bidAmount')
+        ->join('items','items.itemCode','=','bid_pays.itemID')
+        ->where(['bid_pays.buyerUsername' => $name, 'winner' => '1', 'fullPayment' => '1'])
+        ->get();
+
+        $unpaid=DB::table('bid_pays')
+        ->select('items.itemCode','items.itemName','items.seller','items.mainImage','bid_pays.bidAmount','bid_pays.deposite','bid_pays.bidID','bid_pays.buyerUsername')
+        ->join('items','items.itemCode','=','bid_pays.itemID')
+        ->where(['bid_pays.buyerUsername' => $name, 'winner' => '1', 'fullPayment' => '0'])
+        ->get();
+
+       
+        return view('buyerprofile', compact('info','itemData','winItem','unpaid'));
+
+    }
+
+    public function dataInsert(Request $request){
+        return redirect('/bidwinPay')->with('message', 'Item Added Successfully!');
+    }
+
 }
