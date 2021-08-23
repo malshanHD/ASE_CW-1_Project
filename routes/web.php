@@ -103,7 +103,7 @@ Route::middleware(['auth','seller'])->group(function (){
         return view('salesdashboard');
     });
 // route Items insert
-    Route::get('ItemInsert',[subcatcontroller::class, 'getCountries']);
+    Route::get('ItemInsert/{name}',[subcatcontroller::class, 'getCountries']);
     
 
 });
@@ -172,7 +172,7 @@ Route::get('/Help',function(){
 
 
 // Route post payment
-Route::post('/sucess',[bidPayment::class, 'paymentProcess']);
+Route::get('/sucess/{name}',[bidPayment::class, 'paymentProcess']);
 
 
 // Route post  seller Report

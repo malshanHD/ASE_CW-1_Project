@@ -24,9 +24,6 @@
             {{csrf_field()}}
       <div class="container mt-3">
         <div class="row justify-content-center"        >
-        <div class="col-md-4">
-            <img src="itemimage/gif.gif" style="width: 40%;" height="auto" alt="">
-            </div>
             <div class="col-md-8">        
                 <div class="input-group">        
                     <input type="search" class="form-control rounded input-lg" name="Search" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
