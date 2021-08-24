@@ -9,6 +9,7 @@ use App\Models\ItemImage;
 use App\Models\comment;
 use App\Models\cmntreply;
 use App\Models\bidPay;
+use App\Models\subcategory;
 
 use DB;
 
@@ -102,5 +103,15 @@ class itemcontroller extends Controller
         
 
         return view('buyitem', compact('images', 'datas','item','cmnt','sellerInfo','CurrentBid'));
+    }
+
+    public function searchitem(){
+        $serach = $_GET['Search'];
+        $item = item::where('itemName','LIKE','%'.$serach.'%')->GET();
+        return view('search')->with('items',$item);
+    }
+    public function catItemSearch($catItemSearch){ 
+        $catItem = item::where('itemSubCat',$catItemSearch)->GET();
+        return view('categoryitemsearch',compact('catItem'));
     }
 }

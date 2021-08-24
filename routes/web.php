@@ -31,8 +31,18 @@ Route::get('/', function () {
     $Furnitures=App\Models\item::where('itemMainCat','104')->orderBy('itemCode','DESC')->whereDate('bidEnd', '>=', Carbon::now())->take(6)->get();
     $Books=App\Models\item::where('itemMainCat','106')->orderBy('itemCode','DESC')->whereDate('bidEnd', '>=', Carbon::now())->take(6)->get();
     $Electronicitems=App\Models\item::where('itemMainCat','107')->orderBy('itemCode','DESC')->whereDate('bidEnd', '>=', Carbon::now())->take(6)->get();
-    
-    return view('welcome', compact('MensFashion', 'maincategory','WomensFashion','Jewelleryitems','Babyitems','Furnitures','Books','Electronicitems'));
+
+    //Data sub category load
+    $womSub = App\Models\subcategory::where('id','100')->get();
+    $menSub = App\Models\subcategory::where('id','101')->get();
+    $jewllerySub = App\Models\subcategory::where('id','102')->get();
+    $babySub = App\Models\subcategory::where('id','103')->get();
+    $FurnituresSub = App\Models\subcategory::where('id','104')->get();
+    $BooksSub = App\Models\subcategory::where('id','106')->get();
+    $ElectronicSub = App\Models\subcategory::where('id','107')->get();
+
+
+    return view('welcome', compact('MensFashion', 'maincategory','WomensFashion','Jewelleryitems','Babyitems','Furnitures','Books','Electronicitems','womSub','menSub','jewllerySub','babySub','FurnituresSub','BooksSub','ElectronicSub'));
 });
 // end Route to welcome page
 
@@ -56,6 +66,9 @@ Route::get('dropdownlist/getstates/{id}',[subcatcontroller::class, 'getStates'])
 
 
 Route::get('/findSubCat',[subcatcontroller::class, 'subcatfind']);
+
+Route::get('/catlist/{subcat_id}',[itemcontroller::class, 'catItemSearch']);
+
 // End Route get mathods
 
 // start Route post mathods
@@ -163,7 +176,7 @@ route::get('/bidwinner/{itemCode}',[bidPayment::class, 'BidWinner']);
 Route::get('/sallerprofile/{seller}',[sellerSignUpController::class, 'sallerProfile']);
 //route get report seller view
 Route::get('/ReportSeller/{seller}',[sellerSignUpController::class, 'reportSellerView']);
-
+    
 
 //Route get Help page
 Route::get('/Help',function(){
@@ -190,6 +203,11 @@ route::get('/payment', function(){
     return view('paymentView');
 });
 
+route::get('/Search', function(){
+    return view('search');
+});
+
+route::get('/Searchitem',[itemcontroller::class, 'searchitem']);
 
 //Route get Seller Ratings
 route::get('/rate/1/{name}/{username}',[sellerSignUpController::class, 'sellerRatingStrong']);
