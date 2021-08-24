@@ -82,14 +82,33 @@ class BuyerSignUpController extends Controller
         ->where(['bid_pays.buyerUsername' => $name, 'winner' => '1', 'fullPayment' => '1'])
         ->get();
 
+        $winItemCount=DB::table('bid_pays')
+        ->select('items.itemCode','items.itemName','items.mainImage','bid_pays.bidAmount')
+        ->join('items','items.itemCode','=','bid_pays.itemID')
+        ->where(['bid_pays.buyerUsername' => $name, 'winner' => '1', 'fullPayment' => '1'])
+        ->count();
+       
+
         $unpaid=DB::table('bid_pays')
         ->select('items.itemCode','items.itemName','items.seller','items.mainImage','bid_pays.bidAmount','bid_pays.deposite','bid_pays.bidID','bid_pays.buyerUsername')
         ->join('items','items.itemCode','=','bid_pays.itemID')
         ->where(['bid_pays.buyerUsername' => $name, 'winner' => '1', 'fullPayment' => '0'])
         ->get();
 
+        $unpaidCount=DB::table('bid_pays')
+        ->select('items.itemCode','items.itemName','items.seller','items.mainImage','bid_pays.bidAmount','bid_pays.deposite','bid_pays.bidID','bid_pays.buyerUsername')
+        ->join('items','items.itemCode','=','bid_pays.itemID')
+        ->where(['bid_pays.buyerUsername' => $name, 'winner' => '1', 'fullPayment' => '0'])
+        ->count();
+
+        $bidCount=DB::table('bid_pays')
+        ->select('items.itemCode','items.itemName','items.seller','items.mainImage','bid_pays.bidAmount','bid_pays.deposite','bid_pays.bidID','bid_pays.buyerUsername')
+        ->join('items','items.itemCode','=','bid_pays.itemID')
+        ->where(['bid_pays.buyerUsername' => $name])
+        ->count();
+
        
-        return view('buyerprofile', compact('info','itemData','winItem','unpaid'));
+        return view('userprofile', compact('info','itemData','winItem','unpaid','unpaidCount','winItemCount','bidCount'));
 
     }
 

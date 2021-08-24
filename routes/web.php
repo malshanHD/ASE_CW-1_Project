@@ -198,3 +198,8 @@ route::get('/rate/3/{name}/{username}',[sellerSignUpController::class, 'sellerRa
 route::get('/rate/4/{name}/{username}',[sellerSignUpController::class, 'sellerRatingPoor']);
 route::get('/rate/5/{name}/{username}',[sellerSignUpController::class, 'sellerRatingStrongPoor']);
 
+
+route::get('/profile', function(){
+    return view('userprofile');
+});
+
