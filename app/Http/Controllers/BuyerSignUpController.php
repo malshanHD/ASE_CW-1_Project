@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\buyerUser;
 use App\Models\User;
 use DB;
-
+use App\Models\paiddetails;
 
 class BuyerSignUpController extends Controller
 {
@@ -113,6 +113,9 @@ class BuyerSignUpController extends Controller
     }
 
     public function dataInsert(Request $request){
+        $payment=new paiddetails;
+        $payment->itemCode=$request->categorytype;
+        $payment->save();
         return redirect('/bidwinPay')->with('message', 'Item Added Successfully!');
     }
 
