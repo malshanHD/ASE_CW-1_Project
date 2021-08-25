@@ -31,8 +31,18 @@ Route::get('/', function () {
     $Furnitures=App\Models\item::where('itemMainCat','104')->orderBy('itemCode','DESC')->whereDate('bidEnd', '>=', Carbon::now())->take(6)->get();
     $Books=App\Models\item::where('itemMainCat','106')->orderBy('itemCode','DESC')->whereDate('bidEnd', '>=', Carbon::now())->take(6)->get();
     $Electronicitems=App\Models\item::where('itemMainCat','107')->orderBy('itemCode','DESC')->whereDate('bidEnd', '>=', Carbon::now())->take(6)->get();
-    
-    return view('welcome', compact('MensFashion', 'maincategory','WomensFashion','Jewelleryitems','Babyitems','Furnitures','Books','Electronicitems'));
+
+    //Data sub category load
+    $womSub = App\Models\subcategory::where('id','100')->get();
+    $menSub = App\Models\subcategory::where('id','101')->get();
+    $jewllerySub = App\Models\subcategory::where('id','102')->get();
+    $babySub = App\Models\subcategory::where('id','103')->get();
+    $FurnituresSub = App\Models\subcategory::where('id','104')->get();
+    $BooksSub = App\Models\subcategory::where('id','106')->get();
+    $ElectronicSub = App\Models\subcategory::where('id','107')->get();
+
+
+    return view('welcome', compact('MensFashion', 'maincategory','WomensFashion','Jewelleryitems','Babyitems','Furnitures','Books','Electronicitems','womSub','menSub','jewllerySub','babySub','FurnituresSub','BooksSub','ElectronicSub'));
 });
 // end Route to welcome page
 
@@ -56,6 +66,9 @@ Route::get('dropdownlist/getstates/{id}',[subcatcontroller::class, 'getStates'])
 
 
 Route::get('/findSubCat',[subcatcontroller::class, 'subcatfind']);
+
+Route::get('/catlist/{subcat_id}',[itemcontroller::class, 'catItemSearch']);
+
 // End Route get mathods
 
 // start Route post mathods
@@ -66,6 +79,8 @@ Route::post('/itemUpload',[itemcontroller::class, 'saveItem']);
 Route::post('/sellerInfoSave',[sellerSignUpController::class, 'saveSellerInfo']);
 Route::post('/buyerSave',[BuyerSignUpController::class, 'saveBuyerInfo']);
 Route::post('/newAdmin',[adminController::class, 'saveAdminInfo']);
+
+Route::post('/fullPayment',[BuyerSignUpController::class, 'dataInsert']);
 
 
 // End Route post mathods
@@ -100,11 +115,17 @@ Route::middleware(['auth','seller'])->group(function (){
     Route::get('/Saledashboard',function(){
         return view('salesdashboard');
     });
+<<<<<<< HEAD
    // route Items insert
     Route::get('ItemInsert',[subcatcontroller::class, 'getCountries']);
    
     // route Items Delete
     Route::get('ItemDelete',[itemcontroller::class, 'itemdelete']);
+=======
+// route Items insert
+    Route::get('ItemInsert/{name}',[subcatcontroller::class, 'getCountries']);
+    
+>>>>>>> cdada5542de9d588a15ca7921d39647113f4fd96
 
 });
 
@@ -117,6 +138,7 @@ Route::middleware(['auth','buyer'])->group(function (){
     
 // Route post bid win Pay
     Route::post('/bidwinPay',[bidPayment::class, 'bidWinPay']);
+    
     
 
  });
@@ -162,7 +184,7 @@ route::get('/bidwinner/{itemCode}',[bidPayment::class, 'BidWinner']);
 Route::get('/sallerprofile/{seller}',[sellerSignUpController::class, 'sallerProfile']);
 //route get report seller view
 Route::get('/ReportSeller/{seller}',[sellerSignUpController::class, 'reportSellerView']);
-
+    
 
 //Route get Help page
 Route::get('/Help',function(){
@@ -171,7 +193,7 @@ Route::get('/Help',function(){
 
 
 // Route post payment
-Route::post('/sucess',[bidPayment::class, 'paymentProcess']);
+Route::get('/sucess/{name}',[bidPayment::class, 'paymentProcess']);
 
 
 // Route post  seller Report
@@ -189,6 +211,11 @@ route::get('/payment', function(){
     return view('paymentView');
 });
 
+route::get('/Search', function(){
+    return view('search');
+});
+
+route::get('/Searchitem',[itemcontroller::class, 'searchitem']);
 
 
 
@@ -198,4 +225,12 @@ route::get('/rate/2/{name}/{username}',[sellerSignUpController::class, 'sellerRa
 route::get('/rate/3/{name}/{username}',[sellerSignUpController::class, 'sellerRatingNormal']);
 route::get('/rate/4/{name}/{username}',[sellerSignUpController::class, 'sellerRatingPoor']);
 route::get('/rate/5/{name}/{username}',[sellerSignUpController::class, 'sellerRatingStrongPoor']);
+
+//wish list
+route::get('/wishlist/{name}/{itemCode}',[itemcontroller::class, 'wishlist']);
+
+
+route::get('/profile', function(){
+    return view('userprofile');
+});
 

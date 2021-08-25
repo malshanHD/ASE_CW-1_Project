@@ -52,7 +52,16 @@
             
         <div class="card" style="width: 100%; height:100%; background: rgb(241,241,241)">
             <div class="card-body">
-                <h5 class="card-title">{{$data->itemName}}</h5>
+                <div class="row">
+                    <div class="col-6">
+                        <h5 class="card-title">{{$data->itemName}}</h5>
+                    </div>
+                    <div class="col-6">
+                        <p class="text-right">
+                        <a  href="/wishlist/{{ Auth::user()->name }}/{{$data->itemCode}}"><i class="fa fa-bookmark fa-2x" aria-hidden="true"></i></a>
+                    </p>
+                    </div>
+                </div>
                 <form method="post" action="/bidPayment"> 
                 {{csrf_field()}}
                     <input type="hidden" name="merchant_id" value="1218301">   
@@ -80,6 +89,7 @@
                     @foreach($sellerInfo as $seller)
                     @if($seller->status)
                     <input type="submit" class="btn btn-success" value="Create Bid">
+                    
                     @else 
                     <input type="submit" class="btn btn-danger" value="Bid" disabled>
                     <p class="text-danger">You cannot bid for this item because of this seller under system ban</p>

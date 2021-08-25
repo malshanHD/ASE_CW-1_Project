@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Category Item Search</title>
+    <title>Search</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
@@ -17,23 +17,24 @@
 </head>
 <body>
 @include('include.BuyerNavBar') 
+@include('include.searchform')
 <div class="container">
     <div class="row mt-4">
         <div class="col">
-        <p class="text-uppercase font-weight-bold text-warning"><span><a class="text-info" href="/">Home</a></span>><span>Category Name</span></p>
+        <p class="text-uppercase font-weight-bold text-warning"><span><a class="text-info" href="/">Home</a></span>/<span>Search...</span></p>
         </div>
     </div>
 </div>
 <div class="container">
     <div class="row mt-3">
         <div class="col">
-        <h5 class="font-weight-bold">Category Items</h5>
+        <h5 class="font-weight-bold">Search Items</h5>
         </div>
     </div>
 </div>
 <div class="container mt-5" style="background: rgb(241,241,241);">
 <div class="row">
-    @foreach($catItem as $items)
+    @foreach($items as $items)
           <div class="col-12 col-md-3 mb-2">
             <div class="card" style="width: 100%;">
               <div class="card-body">

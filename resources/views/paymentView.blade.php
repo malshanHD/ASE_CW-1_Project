@@ -113,6 +113,11 @@
     <div class="container d-flex justify-content-center mt-5 mb-5">
         <div class="row g-3">
             <div class="col-md-12"> <span>Sams and Sams</span>
+            @if(session()->has('message'))
+                <div class="alert alert-success">
+                    {{ session()->get('message') }}
+                </div>
+            @endif
                 <div class="card">
                     <div class="accordion" id="accordionExample">
                         <div class="card bg-secondary">

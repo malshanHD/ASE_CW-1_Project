@@ -39,7 +39,7 @@
 <div class="container-fluid">
     <div class="row ">
         <div class="col-12">
-        <div class="card mt-4" style="width: 100%; ">
+        <div class="card mt-4" style="width: 20%; ">
             <div class="card-body">
                 <img src="{{asset('/buyer_images/'.$data->profilePicture)}}" style="width:100%; height:175px;" alt="">
             </div>
@@ -110,6 +110,7 @@
                                 <input type="hidden" value="{{$unpaidItem->deposite}}" name="deposite">
                                 <input type="hidden" value="{{$unpaidItem->bidID}}" name="bidID">
                                 <input type="hidden" value="{{$unpaidItem->buyerUsername}}" name="bidderName">
+                                <input type="hidden" value="{{$unpaidItem->seller}}" name="sellerName">
 
                                 <input type="submit" class="btn btn-block btn-success" value="LKR {{$unpaidItem->bidAmount}}">
                                 

@@ -119,6 +119,11 @@
                         <div class="card">
                             <div class="card-header p-0">
                                 <h2 class="mb-0"> <button class="btn btn-light btn-block text-left p-3 rounded-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                @if(session()->has('message'))
+                                    <div class="alert alert-success">
+                                        {{ session()->get('message') }}
+                                    </div>
+                                @endif
                                         <div class="d-flex align-items-center justify-content-between"> <span>Credit card</span>
                                             <div class="icons"> <img src="https://i.imgur.com/2ISgYja.png" width="30"> <img src="https://i.imgur.com/W1vtnOV.png" width="30"> <img src="https://i.imgur.com/35tC99g.png" width="30"> <img src="https://i.imgur.com/2ISgYja.png" width="30"> </div>
                                         </div>
@@ -132,14 +137,16 @@
                                 </div>
                                 <div class="col-6">
                                 <p class="text-right font-weight-bold">LKR {{$bidAmount}}.00</p>
-                                <p class="text-right text-success font-weight-bold">LKR {{$diposite}}.00</p>
+                                <p class="text-right text-success font-weight-bold">LKR {{$diposite}}.00</p><hr>
+                                <p class="text-right text-success font-weight-bold" id="total"></p>
                                 </div>
                                 </div>
 
                             </div>
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                 <div class="card-body payment-card-body"> <span class="font-weight-normal card-text">Card Number</span>
-                                    <div class="input"> <i class="fa fa-credit-card"></i> <input type="text" class="form-control" placeholder="0000 0000 0000 0000"> </div>
+                                    <div class="input"> <i class="fa fa-credit-card"></i> <input type="text" class="form-control" placeholder="0000 0000 0000 0000" onchange="getPrice()" > </div>
+                                    
                                     <div class="row mt-3 mb-3">
                                         <div class="col-md-6"> <span class="font-weight-normal card-text">Expiry Date</span>
                                             <div class="input"> <i class="fa fa-calendar"></i> <input type="text" class="form-control" placeholder="MM/YY"> </div>
@@ -149,13 +156,16 @@
                                         </div>
                                     </div> <span class="text-muted certificate-text"><i class="fa fa-lock"></i> Your transaction is secured with ssl certificate</span>
                                    
-                                    <form action="/paymentSuccess" method="post">
+                                    <form action="/fullPayment" method="post">
                                     {{csrf_field()}}
                                     <input type="hidden" name="bidID" value="{{$bidID}}">
-                                    <input type="hidden" name="deposite" value="{{$diposite}}">
-                                    <input type="hidden" name="bidAmount" value="{{$bidAmount}}">
+                                    <input type="hidden" name="deposite" id="deposite" value="{{$diposite}}">
+                                    <input type="hidden" name="bidAmount" id="amount" value="{{$bidAmount}}">
                                     <input type="hidden" name="bidderName" value="{{$bidderName}}">
-
+                                    <input type="hidden" name="sellername" value="{{$sellerName}}">
+                                    <input type="hidden" name="rate" id="rate" value="2">
+                                    <input type="hidden" id="companyCharge" name="companyCharge">
+                                    <input type="hidden" id="sellerTot" name="sellerCharge">
                                     <input type="submit" value="Pay" class="btn btn-warning mt-2 text-light font-italic btn-block">
                                     </form>
                                 
@@ -168,6 +178,27 @@
         </div>
     </div>
 
+<script type="text/javascript">
+         function getPrice(){
+         	var x=document.getElementById("amount").value;
+         	var y=document.getElementById("deposite").value;
+         	var sum=0;
+            var sellerValue=0;
 
+         	sum=Number(x)-Number(y);
+            document.getElementById("total").innerHTML = sum;
+
+            var numVal1 = Number(document.getElementById("amount").value);
+            var numVal2 = Number(document.getElementById("rate").value) / 100;
+            var totalValue =  (numVal1 * numVal2)
+            
+            sellerValue=Number(numVal1)-Number(totalValue);
+
+            document.getElementById("companyCharge").value = totalValue;
+            document.getElementById("sellerTot").value = sellerValue;
+
+         }
+
+      </script>
 </body>
 </html>

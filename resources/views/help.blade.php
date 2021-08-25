@@ -25,9 +25,9 @@
 @include('include.BuyerNavBar')
 
 <div class="container">
-<div class="row"> 
-    <div class="col-md-3 mt-4">
-      <button class="btn bg-warning oval" type="button" data-toggle="collapse" data-target="#Orders" aria-expanded="false" aria-controls="collapseExample">
+<div class="row justify-content-center"> 
+    <div class="col-md-2 mt-4">
+      <button class="btn bg-warning square" type="button" data-toggle="collapse" data-target="#Orders" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
           Orders
           <br>
           <i class="fa fa-phone-square" aria-hidden="true"></i>
@@ -40,8 +40,8 @@
          </div>     
      </div>
 
-    <div class="col-md-3 mt-4">
-    <button class="btn bg-warning oval" type="button" data-toggle="collapse" data-target="#Payments" aria-expanded="false" aria-controls="collapseExample">
+    <div class="col-md-2 mt-4">
+    <button class="btn bg-warning square" type="button" data-toggle="collapse" data-target="#Payments" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
            Payments
            <br>
            <i class="fa fa-money" aria-hidden="true"></i>
@@ -54,9 +54,9 @@
          </div>                       
     </div>
   
-    <div class="col-md-3 mt-4">
-    <button class="btn bg-warning oval" type="button" data-toggle="collapse" data-target="#Delivery" aria-expanded="false" aria-controls="collapseExample">
-    Shipping & Delivery
+    <div class="col-md-2 mt-4">
+    <button class="btn bg-warning square" type="button" data-toggle="collapse" data-target="#Delivery" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
+     Delivery
            <br>
            <i class="fa fa-truck" aria-hidden="true"></i>
           </button>
@@ -67,8 +67,8 @@
             </div>
          </div>                         
      </div> 
-     <div class="col-md-3 mt-4">
-    <button class="btn bg-warning oval" type="button" data-toggle="collapse" data-target="#Returns" aria-expanded="false" aria-controls="collapseExample">
+     <div class="col-md-2 mt-4">
+    <button class="btn bg-warning square" type="button" data-toggle="collapse" data-target="#Returns" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
           Returns
           <br>
           <i class="fa fa-reply" aria-hidden="true"></i>
@@ -80,12 +80,9 @@
             </div>
          </div>                     
     </div>   
-   </div>  
-  
-   <div class="row"> 
       
-    <div class="col-md-3 mt-4">
-    <button class="btn bg-warning oval" type="button" data-toggle="collapse" data-target="#Refunds" aria-expanded="false" aria-controls="collapseExample">
+    <div class="col-md-2 mt-4">
+    <button class="btn bg-warning square" type="button" data-toggle="collapse" data-target="#Refunds" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
            Refunds
            <br>
            <i class="fa fa-deviantart" aria-hidden="true"></i>
@@ -97,13 +94,12 @@
             </div>
          </div>                     
         </div>   
-      </div>  
+       
     </div>
   </div>
 
 
 </div>
-
 
 
 

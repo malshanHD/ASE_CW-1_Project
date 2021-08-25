@@ -9,6 +9,8 @@ use App\Models\ItemImage;
 use App\Models\comment;
 use App\Models\cmntreply;
 use App\Models\bidPay;
+use App\Models\subcategory;
+use App\Models\wishlist;
 
 use Auth;
 use DB;
@@ -112,6 +114,29 @@ class itemcontroller extends Controller
      $delete = ((Auth::user()->name));
      $item = item::where('seller',$delete)->GET();
      return view('itemDelete')->with('items',$item);
+    }
+
+    public function searchitem(){
+        $serach = $_GET['Search'];
+        $item = item::where('itemName','LIKE','%'.$serach.'%')->GET();
+        return view('search')->with('items',$item);
+    }
+    public function catItemSearch($catItemSearch){ 
+        $catItem = item::where('itemSubCat',$catItemSearch)->GET();
+        return view('categoryitemsearch',compact('catItem'));
+    }
+    public function wishlist($name, $itemCode){
+
+        if (wishlist::where([['username', $name],['itemCode',$itemCode]])->exists()) {
+            //email exists in user table
+            return redirect()->back();
+        }
+
+        $wishlist = new wishlist;
+        $wishlist->username=$name;
+        $wishlist->itemCode=$itemCode;
+        $wishlist->save();
+        return redirect()->back()->with('message', 'wish list Added Successfully!');
     }
 }
 
