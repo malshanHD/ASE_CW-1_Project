@@ -1,24 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background: linear-gradient(90deg, rgba(233,255,4,1) 0%, rgba(1,21,81,1) 0%, rgba(1,21,81,1) 30%, rgba(1,21,81,1) 61%, rgba(1,21,81,1) 100%);">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 <a class="navbar-brand" href="/"><img src="SystemImage/logov1.png" style="width: 200px;" alt=""></a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse justify-content-end text-uppercase font-weight-bold" id="navbarNavDropdown">
+  <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-    <li class="nav-item active">
-        <a class="nav-link" href="/">Home</a>
-      </li>
-    <li class="nav-item active">
-        <a class="nav-link" href="#">Language</a>
-      </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Item Buy</a>
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
-     
-      <li class="nav-item active">
-        <a class="nav-link" href="/Help">Help</a>
-      </li>
-      
       @guest
                             @if (Route::has('login'))
                                 <li class="nav-item active">
@@ -41,9 +30,6 @@
                         <li class="nav-item active">
                           <a class="nav-link" href="/BuyerProfile/{{ Auth::user()->name }}">Account</a>
                         </li>
-                        <li class="nav-item active">
-                          <a class="nav-link" data-toggle="modal" data-target=".bd-example-modal-lg" href="#">Wish List <span class="badge badge-primary">{{$categories}}</span></a>
-                        </li>
                             <li class="nav-item dropdown active">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -61,32 +47,8 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest
+                 @endguest
       
     </ul>
   </div>
 </nav>
-
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content ">
-      <div class="container mt-4">
-        <div class="row">
-        @foreach($items as $wishlist)
-          <div class="col-6">
-            
-              <a  href="/BuyItem/{{$wishlist->itemCode}}/{{$wishlist->seller}}"><p>{{$wishlist->itemName}}</p></a><hr style="border-top: 1px solid silver;">
-           
-          </div>
-          <div class="col-6">
-              <p class="text-secondary">{{$wishlist->created_at}} <a href="/wishlistremove/{{$wishlist->id}}"><i class="fa fa-times text-danger" aria-hidden="true"></i></a></p><hr style="border-top: 1px solid silver;">
-            
-          </div>
-          
-          @endforeach
-          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>

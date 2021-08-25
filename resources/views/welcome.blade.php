@@ -17,9 +17,8 @@
 
 </head>
 <body>
-@include('include.BuyerNavBar')
 
-
+@include('include.guestnav')
 @include('include.searchform')
 
 <div class="container-fluid mt-4 ">

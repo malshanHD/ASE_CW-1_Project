@@ -115,17 +115,17 @@ Route::middleware(['auth','seller'])->group(function (){
     Route::get('/Saledashboard',function(){
         return view('salesdashboard');
     });
-<<<<<<< HEAD
+
    // route Items insert
     Route::get('ItemInsert',[subcatcontroller::class, 'getCountries']);
    
     // route Items Delete
     Route::get('ItemDelete',[itemcontroller::class, 'itemdelete']);
-=======
+
 // route Items insert
     Route::get('ItemInsert/{name}',[subcatcontroller::class, 'getCountries']);
     
->>>>>>> cdada5542de9d588a15ca7921d39647113f4fd96
+
 
 });
 
@@ -233,4 +233,6 @@ route::get('/wishlist/{name}/{itemCode}',[itemcontroller::class, 'wishlist']);
 route::get('/profile', function(){
     return view('userprofile');
 });
+
+Route::get('/wishlistremove/{id}',[itemcontroller::class, 'wishlistRemove']);
 

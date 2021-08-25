@@ -44,7 +44,7 @@
 </head>
 <body>
  <!-- nav start-->
- @include('include.BuyerNavBar')
+ @include('include.guestnav')
 <!-- nav end-->
 
 <!-- Sign-up form start-->

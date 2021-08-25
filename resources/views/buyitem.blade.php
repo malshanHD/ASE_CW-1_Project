@@ -18,19 +18,7 @@
 <body>
 @include('include.BuyerNavBar')
 
-<form class="md-form form-sm mt-0 text-center" action="" method="get">
-            {{csrf_field()}}
-      <div class="container mt-3">
-        <div class="row justify-content-center">
-            <div class="col-md-8">        
-                <div class="input-group">        
-                    <input type="search" class="form-control rounded" name="Search" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                    <button type="submit" class="btn btn-warning"><i class="fa fa-search"></i></button>
-                </div>        
-            </div>         
-        </div>        
-      </div>      
-</form>
+@include('include.searchform')
 <div class="container">
     <div class="row">
         <div class="col mt-5">
@@ -54,7 +42,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-6">
-                        <h5 class="card-title">{{$data->itemName}}</h5>
+                <h5 class="card-title">{{$data->itemName}}</h5>
                     </div>
                     <div class="col-6">
                         <p class="text-right">
@@ -89,7 +77,6 @@
                     @foreach($sellerInfo as $seller)
                     @if($seller->status)
                     <input type="submit" class="btn btn-success" value="Create Bid">
-                    
                     @else 
                     <input type="submit" class="btn btn-danger" value="Bid" disabled>
                     <p class="text-danger">You cannot bid for this item because of this seller under system ban</p>
