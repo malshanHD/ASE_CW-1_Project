@@ -81,6 +81,7 @@
                     <input type="submit" class="btn btn-danger" value="Bid" disabled>
                     <p class="text-danger">You cannot bid for this item because of this seller under system ban</p>
                     @endif
+                    
                     @endforeach
                     <p><b>Shipping:</b> Free Shiping </p>
                     <p><b>Delivery:</b> Estimated between Thu. Sep. 2 and Mon. Sep. 13 </p>
@@ -121,7 +122,7 @@
             @endif
             @endforeach
 
-            <p class="text-center"><a class="text-danger font-weight-bold" href="#">Report this seller <i class="fa fa-ban" aria-hidden="true"></i></a></p>
+            <p class="text-center"><a class="text-danger font-weight-bold" href="/ReportSeller/{{$data->seller}}">Report this seller <i class="fa fa-ban" aria-hidden="true"></i></a></p>
 
             <hr>
 
@@ -156,13 +157,13 @@
             <p>{{$data->itemDescription}}</p>
             <p><b>Warrenty</b> : {{$data->itemWarrenty}} month</p>
             <p><b>Item code</b> : {{$data->itemCode}}</p>
-            <p><b>Saller</b> : NuN</p>
+            <p><b>Saller</b> : {{$data->seller}}</p>
             
             <!-- comment section -->
-            <h5 class="mt-5">QnA Section</h5>
+            <h5 class="mt-5">Comment Section</h5>
             <form action="/askQuize" method="post">
             {{csrf_field()}}
-                <input type="text" name="email" id="">
+                <input type="hidden" name="email" value="{{ Auth::user()->name }}">
                 <input type="hidden" name="itemcode" value="{{$data->itemCode}}">
                 <textarea name="quize" id="quize" class="form-control" rows="5"></textarea>
                 <input type="submit" value="Ask" class="btn btn-warning text-light mt-2">
@@ -173,19 +174,6 @@
                     <p class="card-header"><b>{{$cmnts->email}}</b></p>
                     <div class="card-body">
                         <p class="card-text">{{$cmnts->quize}}</p>
-                        <form action="/answer" method="post">
-                        {{csrf_field()}}
-                            <div class="input-group input-group-sm mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm">Reply</span>
-                                </div>
-                                <input type="hidden" name="mainCmtID" value="{{$cmnts->id}}">
-                                <input type="hidden" name="email" value="user@123.com">
-                                <input type="text" name="cmntreply" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                            </div>
-                            <input type="submit" value="Answer" class="btn btn-primary btn-sm text-light">
-                            
-                        </form>
                     </div>
                 </div>
             @endforeach

@@ -9,6 +9,7 @@ use App\Http\Controllers\bidPayment;
 use App\Http\Controllers\sellerSignUpController;
 use App\Http\Controllers\BuyerSignUpController;
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\commentController;
 use Carbon\Carbon;
 /*
 |--------------------------------------------------------------------------
@@ -236,3 +237,4 @@ route::get('/profile', function(){
 
 Route::get('/wishlistremove/{id}',[itemcontroller::class, 'wishlistRemove']);
 
+Route::post('/askQuize',[commentController::class, 'cmntSave']);

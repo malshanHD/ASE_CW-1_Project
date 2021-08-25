@@ -138,7 +138,7 @@ class itemcontroller extends Controller
         $wishlist->save();
         return redirect()->back()->with('message', 'wish list Added Successfully!');
     }
-    
+
     public function wishlistRemove($id){
         $delete=wishlist::find($id);
         $delete->delete();
