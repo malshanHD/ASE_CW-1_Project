@@ -11,9 +11,12 @@ use App\Models\cmntreply;
 use App\Models\bidPay;
 use App\Models\subcategory;
 use App\Models\wishlist;
+use Carbon\Carbon;
 
 use Auth;
 use DB;
+
+
 
 class itemcontroller extends Controller
 {
@@ -84,6 +87,15 @@ class itemcontroller extends Controller
     }
 
     public function itemView($itemCode,$seller){
+
+        $mytime = Carbon::now();
+
+        $dayone=Carbon::now();
+        $daytwo=Carbon::now();
+
+        $firstDate = $dayone->addDays(10);
+        $SecondDate = $daytwo->addDays(14);
+
         $itemRetrive=$itemCode;
         
         $datas=item::where('itemCode',$itemRetrive)->get();
@@ -104,7 +116,7 @@ class itemcontroller extends Controller
         $CurrentBid=bidPay::where('itemID',$itemRetrive)->orderBy('bidAmount', 'DESC')->take(1)->get();
         
 
-        return view('buyitem', compact('images', 'datas','item','cmnt','sellerInfo','CurrentBid'));
+        return view('buyitem', compact('images', 'datas','item','cmnt','sellerInfo','CurrentBid','mytime','firstDate','SecondDate'));
 
     
     

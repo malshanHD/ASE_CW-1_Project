@@ -33,7 +33,16 @@
             <div class="card" style="width:100%;">
                 <div class="card-body">
                     <img src="{{asset('AddItemsImages/'.$data->mainImage)}}" style="width:100%" alt="">
+                    <hr>
                 </div>
+                <div class="row justify-content-center mt-2">
+        
+                    @foreach($images as $img)
+                        <div class="col-3">
+                            <img src="{{ url('storage/avatars/'.basename($img->image)) }}" class="img-fluid" style="width:100%; height:100%;" alt="Avatar">
+                        </div>
+                    @endforeach
+                    </div>
             </div>
         </div>
         <div class="col-6 mt-2 ">
@@ -47,7 +56,7 @@
                     <div class="col-6">
                         <p class="text-right">
                         <a  href="/wishlist/{{ Auth::user()->name }}/{{$data->itemCode}}"><i class="fa fa-bookmark fa-2x" aria-hidden="true"></i></a>
-                    </p>
+                        </p>
                     </div>
                 </div>
                 <form method="post" action="/bidPayment"> 
@@ -66,6 +75,9 @@
                     <input type="hidden" name="bdPer" id="bdPer" value="20">
                     <input type="hidden" name="amount" id="total">
                     
+                    
+
+                    @if($data->bidEnd >= $mytime->toDateString()) 
                     @foreach($CurrentBid as $bidPrice)
                     <p>Current Bid Price : <span class="font-weight-bold">LKR {{$bidPrice->bidAmount}}</span> </p>
                     
@@ -73,6 +85,10 @@
                     <p class="text-danger font-italic font-weight-bold">Enter LKR {{$bidPrice->bidAmount}} or more</p>
 
                     @endforeach
+
+                    @else
+                    <p class="text-light text-center bg-danger"><i>Bid time has expired</i></p>        
+                    @endif
 
                     @foreach($sellerInfo as $seller)
                     @if($seller->status)
@@ -83,10 +99,10 @@
                     @endif
                     
                     @endforeach
+                    <p><b>Bid Ending:</b> <i><b class="text-danger">{{$data->bidEnd}}</b></i> </p>
                     <p><b>Shipping:</b> Free Shiping </p>
-                    <p><b>Delivery:</b> Estimated between Thu. Sep. 2 and Mon. Sep. 13 </p>
-                    <p><b>Payements:</b> Free Shiping </p>
-                    <p><b>Returns:</b> 30 day returns. Buyer pays for return shipping </p>
+                    <p><b>Delivery:</b> Estimated between {{$firstDate->toDateString()}} and {{$SecondDate->toDateString()}} </p>
+                    <p><b>Returns:</b> 7 day returns</p>
                     <input type="hidden" name="first_name" value="Saman">
                     <input type="hidden" name="last_name" value="Perera"><br>
                     <input type="hidden" name="email" value="malshanhd11@gmail.com">
@@ -132,21 +148,7 @@
         </div>
     @endforeach
     </div>
-    <div class="row">
-        <div class="col-6">
-
-        <div class="row justify-content-center mt-2">
-        
-        @foreach($images as $img)
-            <div class="col-3">
-                <img src="{{ url('storage/avatars/'.basename($img->image)) }}" class="img-fluid" style="width:100%; height:100%;" alt="Avatar">
-            </div>
-        @endforeach
-        </div>
-
-        </div>
     
-    </div>
 </div>
 <div class="container mt-4" >
     <div class="row justify-content-center">
