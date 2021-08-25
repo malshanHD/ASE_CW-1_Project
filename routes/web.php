@@ -238,3 +238,5 @@ route::get('/profile', function(){
 Route::get('/wishlistremove/{id}',[itemcontroller::class, 'wishlistRemove']);
 
 Route::post('/askQuize',[commentController::class, 'cmntSave']);
+
+Route::get('/itemdelete/{itemCode}',[itemcontroller::class, 'deleteitem']);
