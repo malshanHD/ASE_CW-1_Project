@@ -16,7 +16,8 @@
   </style>
 </head>
 <body>
-@include('include.BuyerNavBar') 
+@include('include.guestnav')
+@include('include.searchform')
 <div class="container">
     <div class="row mt-4">
         <div class="col">
