@@ -144,5 +144,9 @@ class itemcontroller extends Controller
         $delete->delete();
         return redirect()->back();
     }
+
+    public function deleteitem($itemCode){
+        DB::table('items')->where('itemCode',$itemCode)->delete();
+    }
 }
 

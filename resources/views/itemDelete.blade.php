@@ -16,25 +16,18 @@
       
       <div class ="container">
        <div class="text-center">
-           <h1>Item Delete</h1>
+           <h1><u>ITEM DELETE</u></h1>
            <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-12 mt-3">
               <table class="table table-striped">
                 <thead>
                     <tr>
-                    <th scope="col">Item Code</th>
-                    <th scope="col">Item Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Item Price</th>
-                    <th scope="col">Warrenty</th>
-                    <th scope="col">item QTY</th>
-                    <th scope="col">item Main Category</th>
-                    <th scope="col">item Sub Category</th>
-                    <th scope="col">bid End</th>
-                    <th scope="col">main Image</th>
-                    <th scope="col">seller Name</th>
-                    <th scope="col">created_at</th>
-                    <th scope="col">updated_at</th>
+                    <th scope="col">ITEM CODE</th>
+                    <th scope="col">ITEM NAME</th>
+                    <th scope="col">ITEM PRICE</th>
+                    <th scope="col">WARRENTY</th>
+                    <th scope="col">ITEM QTY</th>
+                    <th scope="col">ACTION</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,16 +35,10 @@
                     @foreach($items as $DeleteItem)  
                     <th >{{$DeleteItem->itemCode}}</th>
                     <th >{{$DeleteItem->itemName}}</th>
-                    <th >{{$DeleteItem->itemDescription}}</th>
+                    <th >{{$DeleteItem->itemPrice}}</th>
                     <th >{{$DeleteItem->itemWarrenty}}</th>
                     <th >{{$DeleteItem->itemQTY}}</th>
-                    <th >{{$DeleteItem->itemMainCat}}</th>
-                    <th >{{$DeleteItem->itemSubCat}}</th>
-                    <th >{{$DeleteItem->bidEnd}}</th>
-                    <th >{{$DeleteItem->mainImage}}</th>
-                    <th >{{$DeleteItem->seller}}</th>
-                    <th >{{$DeleteItem->created_at}}</th>
-                    <th >{{$DeleteItem->updated_at}}</th>
+                    <th ><a href="/itemdelete/{{$DeleteItem->itemCode}}" class="btn btn-danger">Delete</a></th>
                     </tr>
                     @endforeach
                 </tbody>
