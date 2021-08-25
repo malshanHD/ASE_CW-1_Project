@@ -100,9 +100,11 @@ Route::middleware(['auth','seller'])->group(function (){
     Route::get('/Saledashboard',function(){
         return view('salesdashboard');
     });
-// route Items insert
+   // route Items insert
     Route::get('ItemInsert',[subcatcontroller::class, 'getCountries']);
-    
+   
+    // route Items Delete
+    Route::get('ItemDelete',[itemcontroller::class, 'itemdelete']);
 
 });
 
@@ -186,6 +188,8 @@ Route::post('/paymentSuccess',[bidPayment::class, 'paymentDataSave']);
 route::get('/payment', function(){
     return view('paymentView');
 });
+
+
 
 
 //Route get Seller Ratings

@@ -13,6 +13,9 @@
         <a class="nav-link" href="/ItemInsert">New Item </a>
       </li>
       <li class="nav-item active">
+        <a class="nav-link" href="/ItemDelete">Item Delete </a>
+      </li>
+      <li class="nav-item active">
         <a class="nav-link" href="#">Check Orders</a>
       </li>
       <li class="nav-item active">

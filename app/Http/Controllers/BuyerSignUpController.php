@@ -23,7 +23,7 @@ class BuyerSignUpController extends Controller
             return redirect()->back()->with('message', 'This username was already taken!');
 
          }
-
+        // 
         $this->validate($request,[
             
             'usernames'=>'required|max:10',

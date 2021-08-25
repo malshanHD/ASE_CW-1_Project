@@ -1,5 +1,5 @@
 <?php
-
+// import control
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -20,7 +20,7 @@ class adminController extends Controller
             return redirect()->back()->with('message', 'This username was already taken!');
 
          }
-
+           //validate required
         $this->validate($request,[
             'usernames'=>'required|max:10',
             'fname'=>'required|max:180|min:2',
@@ -30,7 +30,7 @@ class adminController extends Controller
 
         ]);
 
-
+        //admin form data save
         $AdminImage=time().'-'.$request->usernames.'.'.$request->picture->extension();
 
         $request->picture->move(public_path('adminImg'),$AdminImage);

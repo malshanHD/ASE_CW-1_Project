@@ -1,5 +1,5 @@
 <?php
-
+// import control
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -9,7 +9,7 @@ use App\Models\buyerUser;
 
 class bidPayment extends Controller
 {
-
+//Bid Deposite data save
     public function paymentData(Request $request){
         $itemID=$request->itemCode;
         $buyerNamme=$request->itemBuyer;

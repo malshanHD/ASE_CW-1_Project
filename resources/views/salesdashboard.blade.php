@@ -32,7 +32,7 @@
             <div class="card-body">
                 <h5 class="card-title">Revenue</h5>
                 
-                <p class="card-text">US$108.45</p>
+                <p class="card-text">LKR 108.45</p>
                 
             </div>
         </div>

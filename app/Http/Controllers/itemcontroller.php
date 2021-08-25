@@ -10,6 +10,7 @@ use App\Models\comment;
 use App\Models\cmntreply;
 use App\Models\bidPay;
 
+use Auth;
 use DB;
 
 class itemcontroller extends Controller
@@ -102,5 +103,15 @@ class itemcontroller extends Controller
         
 
         return view('buyitem', compact('images', 'datas','item','cmnt','sellerInfo','CurrentBid'));
+
+    
+    
+
+    }
+     public function itemdelete(){
+     $delete = ((Auth::user()->name));
+     $item = item::where('seller',$delete)->GET();
+     return view('itemDelete')->with('items',$item);
     }
 }
+
