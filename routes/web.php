@@ -10,6 +10,7 @@ use App\Http\Controllers\sellerSignUpController;
 use App\Http\Controllers\BuyerSignUpController;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\commentController;
+use App\Http\Controllers\deliveryController;
 use Carbon\Carbon;
 /*
 |--------------------------------------------------------------------------
@@ -188,6 +189,13 @@ Route::get('/ReportSeller/{seller}',[sellerSignUpController::class, 'reportSelle
 
 //delivery process
 Route::get('/delivery/{id}',[deliveryController::class, 'deliveryProcess']);
+
+//packaged process
+Route::post('/packaged',[deliveryController::class, 'packaged']);
+
+Route::get('/shipped/{id}',[deliveryController::class, 'shipped']);
+
+Route::get('/arrived/{id}',[deliveryController::class, 'arrived']);
     
 
 //Route get Help page
