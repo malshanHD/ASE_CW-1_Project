@@ -11,36 +11,52 @@
 <body>
 @include('include.BuyerNavBar')
 <div class="container mt-5">
-    <div class="row">
-        <div class="col">
+    <div class="row justify-content-center">
+        <div class="col-6 ">
             <h1 class="text-uppercase">Physical Inspection</h1>
         </div>
     </div>
 <div class="container">
-    <div class="row">
-        <div class="col-6">
-                <label for="itemCode">Item Code</label> <span class="text-danger">*</span>
+    <div class="row justify-content-center">
+        <div class="col-6 mt-2">
+                <label for="itemCode"><b>Item Code</b></label> <span class="text-danger">*</span>
                 <input type="text" class="form-control border border-primary" id="itemCode"  placeholder="Item Code" name="code">
         </div>
     </div>
 </div>
 <div class="container">
-    <div class="row">
+   <div class="row justify-content-center">
+        <div class="col-6 mt-2 ">
+        <label for="inputMDEx1"><b>Choose your time<b></label><span class="text-danger">*</span>
+        <input type="time" class="form-control border border-primary" id="inputMDEx1" placeholder="Choose your time" name="time" >
+        </div>
+    </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
         <div class="col-6 mt-2">
-                <label for="Time">Time</label> <span class="text-danger">*</span>
-                <input type="text" class="form-control border border-primary" id="Time"  placeholder="Time" name="code">
+                <label for="date"><b>Date</b></label> <span class="text-danger">*</span>
+                <input type="date" class="form-control border border-primary" id="date"  placeholder="Date" name="date">
         </div>
     </div>
 </div>
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-6 mt-2">
-                <label for="date">Date</label> <span class="text-danger">*</span>
-                <input type="date" class="form-control border border-primary" id="date"  placeholder="Date" name="code">
+                <label for="email"><b>Email</b></label> <span class="text-danger">*</span>
+                <input type="text" class="form-control border border-primary" id="email"  placeholder="email" name="email">
         </div>
     </div>
 </div>
-
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-2 mt-5">
+        <input type="submit" class="btn btn-primary btn-block btn-danger" value="Fix">
+        </div>
+    </div>
+</div>
+</div>
 
 
 @include('include.footer')
