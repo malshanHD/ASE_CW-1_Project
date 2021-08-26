@@ -246,3 +246,8 @@ Route::get('/wishlistremove/{id}',[itemcontroller::class, 'wishlistRemove']);
 Route::post('/askQuize',[commentController::class, 'cmntSave']);
 
 Route::get('/itemdelete/{itemCode}',[itemcontroller::class, 'deleteitem']);
+
+//Route physically inspection
+Route::get('/PhysicallyInspection',function(){
+    return view('physicalinspection');
+});
