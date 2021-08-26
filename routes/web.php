@@ -12,6 +12,7 @@ use App\Http\Controllers\adminController;
 use App\Http\Controllers\commentController;
 use App\Http\Controllers\deliveryController;
 use Carbon\Carbon;
+use App\Http\Controllers\phyinspections;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -256,6 +257,7 @@ Route::post('/askQuize',[commentController::class, 'cmntSave']);
 Route::get('/itemdelete/{itemCode}',[itemcontroller::class, 'deleteitem']);
 
 //Route physically inspection
-Route::get('/PhysicallyInspection',function(){
-    return view('physicalinspection');
-});
+Route::get('/PhysicallyInspection/{itemCode}/{seller}',[phyinspections::class, 'inspectHere']);
+
+
+Route::post('/PhyInspect',[phyinspections::class, 'inspectSave']);

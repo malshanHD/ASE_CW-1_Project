@@ -103,6 +103,9 @@
                     <p><b>Shipping:</b> Free Shiping </p>
                     <p><b>Delivery:</b> Estimated between {{$firstDate->toDateString()}} and {{$SecondDate->toDateString()}} </p>
                     <p><b>Returns:</b> 7 day returns</p>
+
+                    <a href="/PhysicallyInspection/{{$data->itemCode}}/{{$data->seller}}">I want to physical inspection </a>
+
                     <input type="hidden" name="first_name" value="Saman">
                     <input type="hidden" name="last_name" value="Perera"><br>
                     <input type="hidden" name="email" value="malshanhd11@gmail.com">

@@ -7,19 +7,22 @@ use App\Models\phyinspection;
 
 class phyinspections extends Controller
 {
-    public function savedata(Request $request){
+    public function inspectSave(Request $request){
 
         $inspection= new phyinspection;
-        $this->validate($request,[
-            'phyinspection'=>'required|max:180|min:2',
-        ]);
+       
 
         $inspection->itemCode=$request->code;
         $inspection->Time=$request->time;
         $inspection->Date=$request->date;
         $inspection->Email=$request->email;
+        $inspection->seller=$request->seller;
         $inspection->save();
         return redirect()->back()->with('message', 'Fix Date & Time Successfully!');
     }
-    //
+    public function inspectHere($itemCode, $seller){
+        $inspectItem = $itemCode;
+        $sellerName = $seller;
+        return view('physicalinspection',compact('inspectItem','sellerName'));
+    }
 }

@@ -10,6 +10,9 @@
 </head>
 <body>
 @include('include.BuyerNavBar')
+<form action="/PhyInspect" method="POST">
+{{csrf_field()}}
+
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-6 ">
@@ -20,7 +23,7 @@
     <div class="row justify-content-center">
         <div class="col-6 mt-2">
                 <label for="itemCode"><b>Item Code</b></label> <span class="text-danger">*</span>
-                <input type="text" class="form-control border border-primary" id="itemCode"  placeholder="Item Code" name="code">
+                <input type="text" value="{{$inspectItem}}" class="form-control border border-primary" id="itemCode"  placeholder="Item Code" name="code">
         </div>
     </div>
 </div>
@@ -57,6 +60,10 @@
     </div>
 </div>
 </div>
+
+<input type="hidden" name="seller" value="{{$sellerName}}">
+
+</form>
 
 
 @include('include.footer')

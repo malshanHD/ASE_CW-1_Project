@@ -48,6 +48,13 @@ class AppServiceProvider extends ServiceProvider
                     $view1->with('orderDetails', \App\Models\paiddetails::select('paiddetails.id','paiddetails.itemCode','paiddetails.value','paiddetails.buyusername','paiddetails.created_at')
                     ->orderBy('paiddetails.id','DESC')
                     ->where([['sellusername', Auth::user()->name],['deleveryStatus',0]] )->get());
+
+                    $view1->with('inspectnotify', \App\Models\phyinspection::where([['seller', Auth::user()->name],['confirm',0]] )->get()->count());
+
+                    $view1->with('inspectData', \App\Models\phyinspection::select('phyinspections.id','phyinspections.itemCode','phyinspections.Time','phyinspections.Date','phyinspections.Email','phyinspections.seller','phyinspections.created_at')
+                    ->orderBy('phyinspections.id','DESC')
+                    ->where([['seller', Auth::user()->name],['confirm',0]] )->get());
+
                 }
             );
         
