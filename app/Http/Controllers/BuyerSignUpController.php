@@ -114,9 +114,18 @@ class BuyerSignUpController extends Controller
 
     public function dataInsert(Request $request){
         $payment=new paiddetails;
-        $payment->itemCode=$request->categorytype;
+        $payment->itemCode=$request->itemCode;
+        $payment->buyusername=$request->bidderName;
+        $payment->sellusername=$request->sellername;
+        $payment->value=$request->bidAmount;
+        $payment->sellerCharge=$request->sellerCharge;
+        $payment->companyCharge=$request->companyCharge;
         $payment->save();
-        return redirect('/bidwinPay')->with('message', 'Item Added Successfully!');
+
+        $itemID=$request->itemCode;
+
+        $affected = DB::table('bid_pays')->where([['itemID', $itemID],['winner', "1"]])->update(['fullPayment' => 1]);
+
     }
 
 }

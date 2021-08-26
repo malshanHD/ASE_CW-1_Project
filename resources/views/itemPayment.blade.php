@@ -166,6 +166,7 @@
                                     <input type="hidden" name="rate" id="rate" value="2">
                                     <input type="hidden" id="companyCharge" name="companyCharge">
                                     <input type="hidden" id="sellerTot" name="sellerCharge">
+                                    <input type="hidden" name="itemCode" value="{{$itemCode}}">
                                     <input type="submit" value="Pay" class="btn btn-warning mt-2 text-light font-italic btn-block">
                                     </form>
                                 

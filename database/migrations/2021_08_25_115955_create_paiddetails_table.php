@@ -15,7 +15,7 @@ class CreatePaiddetailsTable extends Migration
     {
         Schema::create('paiddetails', function (Blueprint $table) {
             $table->id();
-            $table->string('itemCode')->references('itemCode')->on('items');
+            $table->integer('itemCode')->references('itemCode')->on('items');
             $table->string('buyusername')->references('buyusername')->on('buyer_users');
             $table->string('sellusername')->references('sellusername')->on('seller_infos');
             $table->integer('value');

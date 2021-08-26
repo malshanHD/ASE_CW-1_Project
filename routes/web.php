@@ -124,7 +124,7 @@ Route::middleware(['auth','seller'])->group(function (){
     Route::get('ItemDelete',[itemcontroller::class, 'itemdelete']);
 
 // route Items insert
-    Route::get('ItemInsert/{name}',[subcatcontroller::class, 'getCountries']);
+   // Route::get('ItemInsert/{name}',[subcatcontroller::class, 'getCountries']);
     
 
 
@@ -185,6 +185,9 @@ route::get('/bidwinner/{itemCode}',[bidPayment::class, 'BidWinner']);
 Route::get('/sallerprofile/{seller}',[sellerSignUpController::class, 'sallerProfile']);
 //route get report seller view
 Route::get('/ReportSeller/{seller}',[sellerSignUpController::class, 'reportSellerView']);
+
+//delivery process
+Route::get('/delivery/{id}',[deliveryController::class, 'deliveryProcess']);
     
 
 //Route get Help page
@@ -229,6 +232,9 @@ route::get('/rate/5/{name}/{username}',[sellerSignUpController::class, 'sellerRa
 
 //wish list
 route::get('/wishlist/{name}/{itemCode}',[itemcontroller::class, 'wishlist']);
+
+//delivery
+route::get('/delevery/{id}',[itemcontroller::class, 'wishlist']);
 
 
 route::get('/profile', function(){

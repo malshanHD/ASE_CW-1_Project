@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prifile</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
@@ -226,6 +226,7 @@
                         <img class="card-img-top" src="{{asset('AddItemsImages/'.$unpaidItem->mainImage)}}" style="width:100%; height:100%;" alt="Card image cap"> 
                             <div class="card-footer">
 
+                                <input type="hidden" value="{{$unpaidItem->itemCode}}" name="itemCode">
                                 <input type="hidden" value="{{$unpaidItem->bidAmount}}" name="totalPay">
                                 <input type="hidden" value="{{$unpaidItem->deposite}}" name="deposite">
                                 <input type="hidden" value="{{$unpaidItem->bidID}}" name="bidID">
@@ -278,8 +279,8 @@
       <div class="row">
             <div class="col-sm-12 ">
                 <div class="card">
-                  <div class="card-body">
-                      <h6 class="d-flex align-items-center"><i class="material-icons text-info mr-2">Items</i>Bid products</h6>
+                  <div class="card-body bg-success">
+                      <h6 class="d-flex align-items-center text-light"><i class="material-icons text-light mr-2">Items</i>Winning</h6>
                       
                   </div>
                 </div>

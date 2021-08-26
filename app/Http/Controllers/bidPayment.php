@@ -52,6 +52,7 @@ class bidPayment extends Controller
     }
 
     public function bidWinPay(Request $request){
+        $itemCode=$request->itemCode;
         $bidID=$request->bidID;
         $diposite=$request->deposite;
         $bidAmount=$request->totalPay;
@@ -59,6 +60,6 @@ class bidPayment extends Controller
         $sellerName =$request->sellerName;
         
         
-        return view('itemPayment', compact('bidID','diposite','bidAmount','bidderName','sellerName'));
+        return view('itemPayment', compact('bidID','diposite','bidAmount','bidderName','sellerName','itemCode'));
     }
 }

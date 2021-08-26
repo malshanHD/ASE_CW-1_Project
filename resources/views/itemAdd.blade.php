@@ -31,46 +31,6 @@
             {{ session()->get('message') }}
         </div>
     @endif
-
-    @if(!$SellerInfo->registrationPayment)
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-8">
-                    <div class="card">
-                        <div class="card-header bg-danger text-center text-light">
-                            <h5>You should pay Registration Fees</h5>
-                        </div>
-                        <div class="card-body">
-                            <form method="post" action="https://sandbox.payhere.lk/pay/checkout">   
-                                <input type="hidden" name="merchant_id" value="1218301">    <!-- Replace your Merchant ID -->
-                                <input type="hidden" name="return_url" value="http://127.0.0.1:8000/sucess/{{ Auth::user()->name }}">
-                                <input type="hidden" name="cancel_url" value="http://127.0.0.1:8000/fail">
-                                <input type="hidden" name="notify_url" value="http://127.0.0.1:8000/sucess">  
-                               
-                                <input type="hidden" name="order_id" value="ItemNo12345">
-                                <input type="hidden" name="items" value="Registration Payment"><br>
-                                <input type="hidden" name="currency" value="LKR">
-                                <input type="hidden" name="recurrence" value="1 Month">
-                                <input type="hidden" name="duration" value="Forever">
-                                <input type="hidden" name="amount" value="250">  
-
-                                <h5 class="text-center font-weight-bold">LKR 250.00/=</h5>
-                               
-                                <input type="hidden" name="first_name" value="{{$SellerInfo->comapnyname}}">
-                                <input type="hidden" name="last_name" value="{{$SellerInfo->username}}"><br>
-                                <input type="hidden" name="email" value="{{$SellerInfo->email}}">
-                                <input type="hidden" name="phone" value="{{$SellerInfo->contactno}}"><br>
-                                <input type="hidden" name="address" value="{{$SellerInfo->streetadd01}}">
-                                <input type="hidden" name="city" value="{{$SellerInfo->city}}">
-                                <input type="hidden" name="country" value="{{$SellerInfo->country}}"><br><br> 
-                                <input type="submit" value="Pay" class="font-italic btn btn-warning text-light btn-lg btn-block">  
-                            </form> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @else
    
 
     <form action="/itemUpload" method="post" enctype="multipart/form-data">
@@ -166,7 +126,6 @@
         </div>
     </div>
     </form>
-    @endif
 </div>
 
 

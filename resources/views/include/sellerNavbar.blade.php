@@ -10,13 +10,13 @@
         <a class="nav-link" href="/Saledashboard">Sales Dashboard</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="/ItemInsert/{{ Auth::user()->name }}">New Item </a>
+        <a class="nav-link" href="/ItemInsert">New Item </a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="/ItemDelete">Item Delete </a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Check Orders</a>
+        <a class="nav-link" data-toggle="modal" data-target=".bd-example-modal-lg" href="#">New Orders  <span class="badge badge-primary">{{$ordersCount}}</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="#">Check Feedbacks</a>
@@ -48,3 +48,24 @@
   </div>
 </nav>
 <!-- nav-bar end-->
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content ">
+      <div class="container mt-4">
+        <h4>Notifications</h4><hr>
+        <div class="row">
+        @foreach($orderDetails as $pay)
+          <div class="col-12">
+            
+              <p>The item you submitted for the bid (Item Code {{$pay->itemCode}}) was won by a client named {{$pay->buyusername}}. {{$pay->buyusername}} has already paid for this and please activate the delivery process. <a  href="/delivery/{{$pay->id}}">Click here to activate delivery process</a></p><hr style="border-top: 1px solid silver;">
+           
+          </div>
+          
+          @endforeach
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

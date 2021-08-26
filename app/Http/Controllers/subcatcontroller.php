@@ -25,15 +25,15 @@ class subcatcontroller extends Controller
         return redirect()->back()->with('message', 'Item Added Successfully!');
     }
 
-    public function getCountries($name)
+    public function getCountries()
     {
         $categoryType = DB::table('maincategories')->pluck("categoryName","id");
         $count2 = DB::table('items')->count();
 
-        $SellerInfo=DB::table('seller_infos')->where('username',$name)->first();
+        //$SellerInfo=DB::table('seller_infos')->where('username',$name)->first();
        
 
-        return view('itemAdd',compact('categoryType','count2','SellerInfo'));
+        return view('itemAdd',compact('categoryType','count2'));
     }
 
     public function getStates($id) 
