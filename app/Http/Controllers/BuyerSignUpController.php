@@ -126,6 +126,7 @@ class BuyerSignUpController extends Controller
 
         $affected = DB::table('bid_pays')->where([['itemID', $itemID],['winner', "1"]])->update(['fullPayment' => 1]);
 
+        return redirect('/');
     }
 
 }
