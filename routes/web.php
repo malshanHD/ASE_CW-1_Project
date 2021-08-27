@@ -131,6 +131,9 @@ Route::middleware(['auth','seller'])->group(function (){
 
     Route::get('sellerProfle',[sellerSignUpController::class, 'selProfile']);
 
+    //route physical inspection confirm
+    Route::get('inspectconfirm/{id}',[phyinspections::class, 'confirm']);
+
    
 // route Items insert
    // Route::get('ItemInsert/{name}',[subcatcontroller::class, 'getCountries']);

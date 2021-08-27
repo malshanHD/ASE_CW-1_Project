@@ -102,7 +102,7 @@
                   <td>{{$inspect->Date}}</td>
                   <td>{{$inspect->Time}}</td>
                   <td><a href="mailto:{{$inspect->Email}}">{{$inspect->Email}}</a></td>
-                  <td><a href="#" ><i class="fa fa-check-circle text-success text-center" aria-hidden="true"></i></a></td>
+                  <td><a href="/inspectconfirm/{{$inspect->id }}" ><i class="fa fa-check-circle text-success text-center" aria-hidden="true"></i></a></td>
                 </tr>
                
               </tbody>

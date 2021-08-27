@@ -25,4 +25,10 @@ class phyinspections extends Controller
         $sellerName = $seller;
         return view('physicalinspection',compact('inspectItem','sellerName'));
     }
+    public function confirm($id){
+        $confirm=phyinspection::find($id); 
+        $confirm->confirm=1;
+        $confirm->save();
+        return redirect()->back();
+    }
 }
