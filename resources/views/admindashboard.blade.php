@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Category Add</title>
+    <title>Sales dashboard</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
-<!-- start navbar start-->
+<!-- Start admin nav-bar-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background: linear-gradient(90deg, rgba(233,255,4,1) 0%, rgba(1,21,81,1) 0%, rgba(1,21,81,1) 30%, rgba(1,21,81,1) 61%, rgba(1,21,81,1) 100%);">
 <a class="navbar-brand" href="/"><img src="SystemImage/logov1.png" style="width: 200px;" alt=""></a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,61 +58,92 @@
     </ul>
   </div>
 </nav>
+<!-- end admin nav-bar-->
 
-<!-- nav-bar end-->
 
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <h3>Add Category types to Sams & Sams! </h3>
-    </div>
-  </div>
-  @if(session()->has('message'))
-        <div class="alert alert-success">
-            {{ session()->get('message') }}
-        </div>
-    @endif
-  <div class="row mt-3 justify-content-center">
-      <div class="col-5 mr-2" style="background: rgb(222,222,222);">
-        <form action="/categorySave" method="post">
-        {{csrf_field()}}
-              <div class="form-group mt-5 ml-2 mr-2">
-                <label for="categorytype">Category Type</label> <span class="text-danger">*</span>
-                <input type="text" class="form-control border border-warning" id="categorytype"  placeholder="Add category Type" name="categorytype">
-              </div>
-              <input type="submit" class="mb-5 mt-4 btn btn-warning btn-block  btn-outline-primary" name="categoryinsert" value="ADD">
-        </form>
-      </div>
-
-      <div class="col-5 ml-2" style="background: rgb(222,222,222);">
-      <form action="/subcategorySave" method="post">      
-      <div class="form-group mt-5 ml-2 mr-2">
-             {{csrf_field()}}
-              <label for="category">Main Category</label> <span class="text-danger">*</span>
+<div class="container">
+    <Div class="row">
+        <div class="col-4 mt-3">
+        
+        <div class="card" style="width: 18rem; background-color:#0fd6a5;">
+            <div class="card-body">
+                <h5 class="card-title">Buyers</h5>
                 
-                <select id="category" class="form-control border border-warning" name="maincategory">
-                    <option selected>Choose...</option>
-                    @foreach($cat as $cat)
-                    <option value="{{$cat->id}}">{{$cat->categoryName}}</option>
-                    @endforeach
-                </select>
-
-                <label for="sbcategorytype" class="mt-2">Sub Category Type</label> <span class="text-danger">*</span>
-                <input type="text" class="form-control border border-warning" id="sbcategorytype"  placeholder="Add sub category Type" name="subcategorytype">
-
-              
+                <p class="card-text">1534</p>
+                
             </div>
-            <input type="submit" class="mb-5 mt-4 btn btn-warning btn-block btn-outline-primary" name="subcategoryinsert" value="ADD">
-            </form>
-      </div>
-    </div>
+        </div>
+
+        </div>
+        <div class="col-4 mt-3">
+        
+        <div class="card" style="width: 18rem; background-color: #e2ee0b;">
+            <div class="card-body">
+                <h5 class="card-title">Sellers</h5>
+                
+                <p class="card-text">125</p>
+                
+            </div>
+        </div>
+
+        </div>
+        <div class="col-4 mt-3">
+        
+        <div class="card" style="width: 18rem; background-color:#f272ed;">
+            <div class="card-body">
+                <h5 class="card-title">Items Selling Income</h5>
+                
+                <p class="card-text">LK 300,000</p>
+                
+            </div>
+        </div>
+
+        </div>
+        <div class="col-4 mt-3">
+        
+        <div class="card" style="width: 18rem; background-color:#69ba28;">
+            <div class="card-body">
+                <h5 class="card-title">Total Income</h5>
+                
+                <p class="card-text">LK 440,500</p>
+                
+            </div>
+        </div>
+
+        </div>
+        <div class="col-4 mt-3">
+        
+        <div class="card" style="width: 18rem; background-color:#eb3c42;">
+            <div class="card-body">
+                <h5 class="card-title">Rgistration Income</h5>
+                
+                <p class="card-text">LK 140,500</p>
+                
+            </div>
+        </div>
+
+        </div>
+        <div class="col-4 mt-3">
+        
+        <div class="card" style="width: 18rem; background-color:#4e3bdb;">
+            <div class="card-body">
+                <h5 class="card-title">Rating</h5>
+                
+                <p class="card-text">80%</p>
+                
+            </div>
+        </div>
+
+        </div>
+    </Div>
 </div>
 
+<!--footer start-->
 @include('include.footer')
+<!--footer end-->
 
 
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 </body>
 </html>
