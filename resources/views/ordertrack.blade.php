@@ -199,7 +199,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-8">
             <h4><strong>Shipping address</strong></h4><hr>
             <div class="row">
                 <div class="col-4">

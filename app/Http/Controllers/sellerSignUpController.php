@@ -77,7 +77,7 @@ class sellerSignUpController extends Controller
         
         $endBid=item::where('seller',$seller)->orderBy('itemCode','DESC')->whereDate('bidEnd', '<=', Carbon::now())->take(6)->get();
         
-        return view('sellerprofile', compact('avgStar', 'info','feedbacks','items','endBid'));
+        return view('customerSellerProfile', compact('avgStar', 'info','feedbacks','items','endBid'));
 
     }
     
