@@ -117,9 +117,11 @@ Route::get('/returnItem',function(){
 //Route get sales dashboard
 
 Route::middleware(['auth','seller'])->group(function (){
-    Route::get('/Saledashboard',function(){
-        return view('salesdashboard');
-    });
+    // Route::get('/Saledashboard',function(){
+    //     return view('salesdashboard');
+    // });
+
+    Route::get('Saledashboard',[sellerSignUpController::class, 'dashboardData']);
 
    // route Items insert
     Route::get('ItemInsert',[subcatcontroller::class, 'getCountries']);

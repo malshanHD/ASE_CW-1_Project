@@ -5,89 +5,184 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sales dashboard</title>
+    <style>
+        .card {
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    margin-bottom: 30px;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,0.1), 0 0.9375rem 1.40625rem rgba(90,97,105,0.1), 0 0.25rem 0.53125rem rgba(90,97,105,0.12), 0 0.125rem 0.1875rem rgba(90,97,105,0.1);
+    }
+    .l-bg-cherry {
+        background: linear-gradient(to right, #493240, #f09) !important;
+        color: #fff;
+    }
+
+    .l-bg-blue-dark {
+        background: linear-gradient(to right, #373b44, #4286f4) !important;
+        color: #fff;
+    }
+
+    .l-bg-green-dark {
+        background: linear-gradient(to right, #0a504a, #38ef7d) !important;
+        color: #fff;
+    }
+
+    .l-bg-orange-dark {
+        background: linear-gradient(to right, #a86008, #ffba56) !important;
+        color: #fff;
+    }
+
+    .card .card-statistic-3 .card-icon-large .fas, .card .card-statistic-3 .card-icon-large .far, .card .card-statistic-3 .card-icon-large .fab, .card .card-statistic-3 .card-icon-large .fal {
+        font-size: 110px;
+    }
+
+    .card .card-statistic-3 .card-icon {
+        text-align: center;
+        line-height: 50px;
+        margin-left: 15px;
+        color: #000;
+        position: absolute;
+        right: -5px;
+        top: 20px;
+        opacity: 0.1;
+    }
+
+    .l-bg-cyan {
+        background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+        color: #fff;
+    }
+
+    .l-bg-green {
+        background: linear-gradient(135deg, #23bdb8 0%, #43e794 100%) !important;
+        color: #fff;
+    }
+
+    .l-bg-orange {
+        background: linear-gradient(to right, #f9900e, #ffba56) !important;
+        color: #fff;
+    }
+
+    .l-bg-cyan {
+        background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+        color: #fff;
+    }
+    </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+
 </head>
 <body>
 <!-- start navbar start-->
 @include('include.sellerNavbar')
-   
-<!-- nav-bar end-->
-<div class="container">
-    <Div class="row">
-        <div class="col-4 mt-3">
-        
-        <div class="card" style="width: 18rem; background-color:#0fd6a5;">
-            <div class="card-body">
-                <h5 class="card-title">Orders</h5>
-                
-                <p class="card-text">6 Today</p>
-                
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-xl-3 col-lg-6">
+                <div class="card l-bg-cherry">
+                    <div class="card-statistic-3 p-4">
+                        <div class="card-icon card-icon-large"><i class="fas fa-shopping-cart"></i></div>
+                        <div class="mb-4">
+                            <h5 class="card-title mb-0">Total Orders</h5>
+                        </div>
+                        <div class="row align-items-center mb-2 d-flex">
+                            <div class="col-8">
+                                <h2 class="d-flex align-items-center mb-0">
+                                {{$orders}}
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                            <div class="progress-bar l-bg-cyan" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+                <div class="card l-bg-blue-dark">
+                    <div class="card-statistic-3 p-4">
+                        <div class="card-icon card-icon-large"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="mb-4">
+                            <h5 class="card-title mb-0">Total Revenue</h5>
+                        </div>
+                        <div class="row align-items-center mb-2 d-flex">
+                            <div class="col-12">
+                                <h2 class="d-flex align-items-center mb-0">
+                                    LKR {{$revenue}}
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                            <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+                <div class="card l-bg-green-dark">
+                    <div class="card-statistic-3 p-4">
+                        <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i></div>
+                        <div class="mb-4">
+                            <h5 class="card-title mb-0">Products</h5>
+                        </div>
+                        <div class="row align-items-center mb-2 d-flex">
+                            <div class="col-8">
+                                <h2 class="d-flex align-items-center mb-0">
+                                    {{$products}}
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                            <div class="progress-bar l-bg-orange" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+                <div class="card l-bg-orange-dark">
+                    <div class="card-statistic-3 p-4">
+                        <div class="card-icon card-icon-large"><i class="fas fa-star"></i></div>
+                        <div class="mb-4">
+                            <h5 class="card-title mb-0">Ratings</h5>
+                        </div>
+                        <div class="row align-items-center mb-2 d-flex">
+                            <div class="col-8">
+                                <h2 class="d-flex align-items-center text-warning mb-0">
+                                @for ($i=1; $i<=$avgStar; $i++)	
+                                    <span class="fa fa-star checked"></span>
+                                @endfor
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                            <div class="progress-bar l-bg-cyan" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+                <div class="card l-bg-orange-dark">
+                    <div class="card-statistic-3 p-4">
+                        <div class="card-icon card-icon-large"><i class="fas fa-users"></i></div>
+                        <div class="mb-4">
+                            <h5 class="card-title mb-0">My Customers</h5>
+                        </div>
+                        <div class="row align-items-center mb-2 d-flex">
+                            <div class="col-8">
+                                <h2 class="d-flex align-items-center mb-0">
+                                    {{$customers}}
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                            <div class="progress-bar l-bg-cyan" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        </div>
-        <div class="col-4 mt-3">
-        
-        <div class="card" style="width: 18rem; background-color: #e2ee0b;">
-            <div class="card-body">
-                <h5 class="card-title">Revenue</h5>
-                
-                <p class="card-text">LKR 108.45</p>
-                
-            </div>
-        </div>
-
-        </div>
-        <div class="col-4 mt-3">
-        
-        <div class="card" style="width: 18rem; background-color:#f272ed;">
-            <div class="card-body">
-                <h5 class="card-title">Visitors</h5>
-                
-                <p class="card-text">412 Today</p>
-                
-            </div>
-        </div>
-
-        </div>
-        <div class="col-4 mt-3">
-        
-        <div class="card" style="width: 18rem; background-color:#69ba28;">
-            <div class="card-body">
-                <h5 class="card-title">Products</h5>
-                
-                <p class="card-text">650</p>
-                
-            </div>
-        </div>
-
-        </div>
-        <div class="col-4 mt-3">
-        
-        <div class="card" style="width: 18rem; background-color:#eb3c42;">
-            <div class="card-body">
-                <h5 class="card-title">Return</h5>
-                
-                <p class="card-text">45</p>
-                
-            </div>
-        </div>
-
-        </div>
-        <div class="col-4 mt-3">
-        
-        <div class="card" style="width: 18rem; background-color:#4e3bdb;">
-            <div class="card-body">
-                <h5 class="card-title">Rating</h5>
-                
-                <p class="card-text">80%</p>
-                
-            </div>
-        </div>
-
-        </div>
-    </Div>
-</div>
+    </div>
 
 @include('include.footer')
 

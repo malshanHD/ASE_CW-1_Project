@@ -7,6 +7,7 @@ use App\Models\bidPay;
 use App\Models\item;
 use App\Models\buyerUser;
 use App\Models\seller_info;
+use App\Models\registrationPayment;
 use DB;
 use Auth;
 
@@ -43,8 +44,23 @@ class bidPayment extends Controller
     }
 
     public function paymentProcess($name){
-       $affected = DB::table('seller_infos')->where('username', $name)->update(['registrationPayment' => 1]);
-       return redirect('/Saledashboard');
+        $affected = DB::table('seller_infos')->where('username', $name)->update(['registrationPayment' => 1]);
+
+        $user = DB::table('buyer_users')->where('username', $name)->update(['registrationPayment' => 1]);
+
+        if (registrationPayment::where('username', $name)->exists()) {
+            //payment exists in user table
+            return redirect('/');
+
+         }
+        
+        $regData=new registrationPayment;
+        $regData->description= "Registration Payment";
+        $regData->username= $name;
+        $regData->value= 250;
+        $regData->save();
+
+       return redirect('/');
     }
 
     public function BidWinner($itemCode){

@@ -10,6 +10,8 @@ use App\Models\sellerReport;
 use App\Models\sellerFeedback;
 use App\Models\item;
 use Carbon\Carbon;
+use App\Models\bidPay;
+use App\Models\paiddetails;
 use DB;
 
 use Auth;
@@ -226,5 +228,19 @@ class sellerSignUpController extends Controller
         return view('profileSeller', compact('info','endBid','avgStar','feedbacks'));
     }
 
-    
+    public function dashboardData(){
+        $seller = ((Auth::user()->name));
+
+        $orders = bidPay::where([['seller', $seller],['fullPayment',1]])->GET()->count();
+
+        $customers = bidPay::where('seller', $seller)->GET()->count();
+
+        $revenue = paiddetails::where('sellusername', $seller)->sum('sellerCharge');
+
+        $products = item::where('seller', $seller)->GET()->count();
+
+        $avgStar = sellerRate::where('seller',$seller)->avg('value');
+
+        return view('salesdashboard', compact('orders','revenue','products','avgStar','customers'));
+    }
 }

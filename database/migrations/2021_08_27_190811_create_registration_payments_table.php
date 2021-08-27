@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePhyinspectionsTable extends Migration
+class CreateRegistrationPaymentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreatePhyinspectionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('phyinspections', function (Blueprint $table) {
+        Schema::create('registration_payments', function (Blueprint $table) {
             $table->id();
-            $table->integer('itemCode')->references('itemCode')->on('items');
-            $table->time('Time');
-            $table->date('Date');
-            $table->String('Email');
+            $table->string('description');
+            $table->string('username');
+            $table->integer('value');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreatePhyinspectionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('phyinspections');
+        Schema::dropIfExists('registration_payments');
     }
 }
