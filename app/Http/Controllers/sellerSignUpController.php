@@ -217,9 +217,13 @@ class sellerSignUpController extends Controller
         $sellerInfo = ((Auth::user()->name));
         $info = seller_info::where('username',$sellerInfo)->GET();
 
+        $avgStar = sellerRate::where('seller',$sellerInfo)->avg('value');
+
+        $feedbacks=sellerFeedback::where('seller',$sellerInfo)->get();
+
         $endBid=item::where('seller',$sellerInfo)->orderBy('itemCode','DESC')->whereDate('bidEnd', '<=', Carbon::now())->take(6)->get();
 
-        return view('profileSeller', compact('info','endBid'));
+        return view('profileSeller', compact('info','endBid','avgStar','feedbacks'));
     }
 
     

@@ -241,6 +241,13 @@
               <p>
                 {{$selInfo->country}}
               </p>
+              <p class="card-text text-primary font-weight-bold">Ratings <i class="fa fa-commenting" aria-hidden="true"></i></p>
+              <h5 class="card-text text-warning font-weight-bold">
+              @for ($i=1; $i<=$avgStar; $i++)	
+                  <span class="fa fa-star checked"></span>
+              @endfor
+              </h5>
+              <hr>
             </div>
           </div>
         </div>
@@ -282,10 +289,12 @@
                
               </tbody>
             </table>
+            
           </div>
         </div>
 
       </div>
+      
       <div class="col-xs-12 col-sm-3">
         
         <!-- Contact user -->
@@ -343,6 +352,25 @@
         <div class="col-2">
             <img class="card-img-top" src="{{asset('AddItemsImages/'.$items->mainImage)}}" style="width:100%; height:100%;" alt="Card image cap"> 
             <p class="bg-success  text-center mt-2 mb-2"><a class="text-light" href="bidWinner/{{$items->itemCode}}">{{$items->itemName}}</a></p>
+        </div>
+    @endforeach
+    </div>
+</div>
+
+<div class="container mt-5">
+  <h2>Feedbacks</h2><hr>
+    <div class="row">
+    @foreach($feedbacks as $feedbacks)
+        <div class="col-12 mt-2">
+            <div class="card">
+                <h5 class="card-header">{{$feedbacks->user}} <span><i class="fa fa-thumbs-up text-success" aria-hidden="true"></i> <i class="fa fa-thumbs-down text-danger" aria-hidden="true"></i></span></h5>
+                <div class="card-body">
+                    <p>{{$feedbacks->Feedback}}</p>
+                </div>
+                <div class="card-footer text-muted">
+                    <p>{{$feedbacks->created_at}}</p>
+                </div>
+            </div>
         </div>
     @endforeach
     </div>
