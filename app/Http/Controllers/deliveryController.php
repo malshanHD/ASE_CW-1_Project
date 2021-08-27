@@ -35,13 +35,17 @@ class deliveryController extends Controller
         return redirect()->back();
     }
 
-    public function arrived($id){
+    public function arrived($paymentID){
 
         $shippedTime = Carbon::now();
 
-        $arrived = DB::table('deliveries')->where('paymentID', $id)->update([
+        $arrived = DB::table('deliveries')->where('paymentID', $paymentID)->update([
             'arrivedToCurrier' => 1,
             'arrivedToCurrierTime' =>$shippedTime,
+        ]);
+
+        $paidDone = DB::table('paiddetails')->where('id', $paymentID)->update([
+            'deleveryStatus' => 1,
         ]);
 
         return redirect()->back();
@@ -55,5 +59,18 @@ class deliveryController extends Controller
         $packageDone->buyerName=$request->buyerName;
         $packageDone->save();
         return redirect()->back()->with('message', 'Item Added Successfully!');
+    }
+
+    public function ordertrack($itemCode){
+        $track=DB::table('deliveries')
+        ->select('deliveries.id','deliveries.paymentID','deliveries.itemCode','deliveries.created_at','deliveries.shipped','deliveries.shippedTime','deliveries.arrivedToCurrier','deliveries.arrivedToCurrierTime',
+        'items.itemName','items.itemDescription','items.itemPrice','items.mainImage',
+        'buyer_users.phnNumber','buyer_users.country','buyer_users.streetadd01','buyer_users.streetadd02','buyer_users.city','buyer_users.province','buyer_users.zipcode')
+        ->join('items','items.itemCode','=','deliveries.itemCode')
+        ->join('buyer_users','buyer_users.username','=','deliveries.buyerName')
+        ->where('deliveries.id',$itemCode)
+        ->get();
+        
+        return view('ordertrack',compact('track'));
     }
 }

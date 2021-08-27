@@ -196,7 +196,9 @@ Route::post('/packaged',[deliveryController::class, 'packaged']);
 
 Route::get('/shipped/{id}',[deliveryController::class, 'shipped']);
 
-Route::get('/arrived/{id}',[deliveryController::class, 'arrived']);
+Route::get('/arrived/{paymentID}',[deliveryController::class, 'arrived']);
+
+Route::get('/ordertrack/{itemCode}',[deliveryController::class, 'ordertrack']);
     
 
 //Route get Help page
@@ -261,3 +263,5 @@ Route::get('/PhysicallyInspection/{itemCode}/{seller}',[phyinspections::class, '
 
 
 Route::post('/PhyInspect',[phyinspections::class, 'inspectSave']);
+
+

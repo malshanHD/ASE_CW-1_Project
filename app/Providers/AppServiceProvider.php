@@ -30,12 +30,23 @@ class AppServiceProvider extends ServiceProvider
                 'include.BuyerNavBar', 
                 function ($view) {
                     $view->with('categories', \App\Models\wishlist::where('username', Auth::user()->name )->get()->count());
-                    //$view->with('items', \App\Models\wishlist::where('username', Auth::user()->name )->get());
+
+                      //$view->with('items', \App\Models\wishlist::where('username', Auth::user()->name )->get());
 
                     $view->with('items', \App\Models\wishlist::select('wishlists.id','items.seller','items.itemName','items.itemCode','items.created_at')
                     ->join('items','items.itemCode','=','wishlists.itemCode')
                     ->orderBy('wishlists.id','DESC')
                     ->where('wishlists.username', Auth::user()->name )->get());
+
+                    //order track
+                    $view->with('orderTrackNoti', \App\Models\delivery::where([['buyerName', Auth::user()->name],['packaging',1],['arrivedToCurrier',0]])->get()->count());
+                    $view->with('orderTrackDetails', \App\Models\delivery::where([['buyerName', Auth::user()->name],['packaging',1],['arrivedToCurrier',0]])->get());
+                    
+                    //my Collection
+                   
+                    $view->with('mycol', \App\Models\delivery::where([['buyerName', Auth::user()->name],['packaging',1],['arrivedToCurrier',1]])->get());
+                    
+
                 }
             );
 

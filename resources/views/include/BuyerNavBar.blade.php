@@ -12,9 +12,13 @@
         <a class="nav-link" href="#">Language</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Item Buy</a>
+        <a class="nav-link" data-toggle="modal" data-target=".bd-mycol-modal-lg" href="#">My store</a>
       </li>
      
+      <li class="nav-item active">
+        <a class="nav-link" data-toggle="modal" data-target=".bd-orderTrack-modal-lg" href="#">Track my order <span class="badge badge-primary">{{$orderTrackNoti}}</span></a>
+      </li>
+
       <li class="nav-item active">
         <a class="nav-link" href="/Help">Help</a>
       </li>
@@ -71,6 +75,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content ">
       <div class="container mt-4">
+      <h4>Wish list</h4><hr>
         <div class="row">
         @foreach($items as $wishlist)
           <div class="col-6">
@@ -81,6 +86,52 @@
           <div class="col-6">
               <p class="text-secondary">{{$wishlist->created_at}} <a href="/wishlistremove/{{$wishlist->id}}"><i class="fa fa-times text-danger" aria-hidden="true"></i></a></p><hr style="border-top: 1px solid silver;">
             
+          </div>
+          
+          @endforeach
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- order tracking data -->
+<div class="modal fade bd-orderTrack-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content ">
+      <div class="container mt-4">
+      <h4>Order tracking</h4><hr>
+        <div class="row">
+        @foreach($orderTrackDetails as $tracking)
+          <div class="col-12">
+            
+            <p>Your parcel (Item code {{$tracking->id}}) ready to shipped. <a class="text-primary" href="/ordertrack/{{$tracking->id}}">Track my order</a> {{$tracking->created_at}}</p>
+              
+           
+          </div>
+          
+          @endforeach
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- my collection data -->
+<div class="modal fade bd-mycol-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content ">
+      <div class="container mt-4">
+      <h4>My Collection</h4><hr>
+        <div class="row">
+        @foreach($mycol as $myCollection)
+          <div class="col-12">
+            
+            <p>Your parcel (Item code {{$myCollection->id}}) ready to shipped. <a class="text-primary" href="/ordertrack/{{$myCollection->id}}">Track my order</a> {{$myCollection->created_at}}</p>
+              
+           
           </div>
           
           @endforeach

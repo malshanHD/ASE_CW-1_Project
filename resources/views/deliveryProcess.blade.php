@@ -180,7 +180,7 @@
                             <li class="event" >
                                 <h3>Arrived to currier</h3>
                                 @if(!$timeline->arrivedToCurrier)
-                                <a href="/arrived/{{$delivery->id}}" class="btn btn-success btn-block">Arrived to currier</a>
+                                <a href="/arrived/{{$timeline->paymentID}}" class="btn btn-success btn-block">Arrived to currier</a>
                                 @else
                                 <p>{{$timeline->arrivedToCurrierTime}}</p>
                                 @endif
