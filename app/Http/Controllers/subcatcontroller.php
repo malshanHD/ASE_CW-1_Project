@@ -13,6 +13,7 @@ class subcatcontroller extends Controller
     public function subsavedata(Request $request){
         $Subcategory=new subcategory;
         
+        // validation
         $this->validate($request,[
             'maincategory'=>'required|max:180|min:2',
             'subcategorytype'=>'required|max:180|min:2',
@@ -22,7 +23,7 @@ class subcatcontroller extends Controller
         $Subcategory->subcategoryName=$request->subcategorytype;
         $Subcategory->id=$request->maincategory;
         $Subcategory->save();
-        return redirect()->back()->with('message', 'Item Added Successfully!');
+        return redirect()->back()->with('message', 'Item sub category added Successfully!');
     }
 
     public function getCountries()

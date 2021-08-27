@@ -133,10 +133,12 @@ class itemcontroller extends Controller
         $item = item::where('itemName','LIKE','%'.$serach.'%')->GET();
         return view('search')->with('items',$item);
     }
+
     public function catItemSearch($catItemSearch){ 
         $catItem = item::where('itemSubCat',$catItemSearch)->GET();
         return view('categoryitemsearch',compact('catItem'));
     }
+    
     public function wishlist($name, $itemCode){
 
         if (wishlist::where([['username', $name],['itemCode',$itemCode]])->exists()) {

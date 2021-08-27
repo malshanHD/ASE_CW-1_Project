@@ -34,6 +34,7 @@
 </div>
 <div class="container mt-5" style="background: rgb(241,241,241);">
 <div class="row">
+  <!-- forearch for items -->
     @foreach($items as $items)
           <div class="col-12 col-md-3 mb-2">
             <div class="card" style="width: 100%;">

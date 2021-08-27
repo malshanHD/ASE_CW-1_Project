@@ -20,6 +20,7 @@ class phyinspections extends Controller
         $inspection->save();
         return redirect()->back()->with('message', 'Fix Date & Time Successfully!');
     }
+    
     public function inspectHere($itemCode, $seller){
         $inspectItem = $itemCode;
         $sellerName = $seller;

@@ -21,11 +21,13 @@
             <h1 class="text-uppercase">Item Add</h1>
         </div>
     </div>
+    <!-- error haddling -->
     @foreach($errors->all() as $error)
         <div class="alert alert-danger" role="alert">
         {{$error}}
         </div>
     @endforeach
+    <!-- successfull message -->
     @if(session()->has('message'))
         <div class="alert alert-success">
             {{ session()->get('message') }}
