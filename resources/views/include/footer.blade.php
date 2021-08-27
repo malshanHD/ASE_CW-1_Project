@@ -30,23 +30,23 @@
       </div>
      
       <div class="col-6 col-md-2 mt-4">
-        <img src="SystemImage/syslogo.png" style="width:100%;" alt="">
+        <img src="/SystemImage/syslogo.png" style="width:100%;" alt="">
        </div>
 
        <div class="col-6 col-md-2 mt-4">
-        <img src="SystemImage/qr.png" style="width:100%;" alt="">
+        <img src="/SystemImage/qr.png" style="width:100%;" alt="">
        </div>
 
     </div>
     <div class="row justify-content-center">
       <div class="col-12 col-md-2">
-        <img src="SystemImage/apple.png" style="width:100%;" alt="">
+        <img src="/SystemImage/apple.png" style="width:100%;" alt="">
       </div>
       <div class="col-12 col-md-2">
-        <img src="SystemImage/google.png" style="width:100%;" alt="">
+        <img src="/SystemImage/google.png" style="width:100%;" alt="">
       </div>
       <div class="col-12 col-md-2">
-        <img src="SystemImage/huawei.png" style="width:100%;" alt="">
+        <img src="/SystemImage/huawei.png" style="width:100%;" alt="">
       </div>
     </div>
     <div class="row mt-2 justify-content-center">
