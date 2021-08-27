@@ -73,6 +73,12 @@
             {{ session()->get('message') }}
         </div>
     @endif
+
+    @foreach($errors->all() as $error)
+               <div class="alert alert-danger" role="alert">
+                  {{$error}}
+               </div>
+            @endforeach
   <div class="row mt-3 justify-content-center">
       <div class="col-5 mr-2" style="background: rgb(222,222,222);">
         <form action="/categorySave" method="post">

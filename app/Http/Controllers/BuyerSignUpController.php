@@ -18,12 +18,15 @@ class BuyerSignUpController extends Controller
         $passusername=$request->usernames;
         $passemail=$request->email;
         
+        //user check if user already exist 
         if (User::where('name', $request->usernames)->exists()) {
             //email exists in user table
             return redirect()->back()->with('message', 'This username was already taken!');
 
          }
         // 
+
+        // validation
         $this->validate($request,[
             
             'usernames'=>'required|max:10',
@@ -41,7 +44,7 @@ class BuyerSignUpController extends Controller
             
 
         ]);
-
+        
 
         $BuyerImage=time().'-'.$request->fname.'.'.$request->picture->extension();
 
