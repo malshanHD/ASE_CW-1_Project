@@ -163,6 +163,7 @@
                                     <input type="hidden" name="buyerName" value="{{$buyerNamme}}">
                                     <input type="hidden" name="bidAmount" value="{{$bidAmount}}">
                                     <input type="hidden" name="bidDeposite" value="{{$bidDeposite}}">
+                                    <input type="hidden" name="seller" value="{{$seller}}">
 
                                     <input type="submit" value="Pay" class="btn btn-warning mt-2 text-light font-italic btn-block">
                                     </form>

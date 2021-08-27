@@ -217,7 +217,7 @@
       @foreach($unpaid as $unpaidItem)
         <form action="/bidwinPay" method="post">
         {{csrf_field()}}
-            <div class="col-3 mt-3">
+            <div class="col-6 mt-3">
                 <div class="">
                     <div class="card" style="width: 100%; background: rgb(241,241,241);">
                         <div class="card-header card-title">{{$unpaidItem->itemName}}</div>

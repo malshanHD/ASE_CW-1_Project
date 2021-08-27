@@ -12,6 +12,8 @@ use App\Models\item;
 use Carbon\Carbon;
 use DB;
 
+use Auth;
+
 
 class sellerSignUpController extends Controller
 {
@@ -209,4 +211,16 @@ class sellerSignUpController extends Controller
         $sellerFeedback->save();
         return redirect()->back();
     }
+
+    public function selProfile(){
+
+        $sellerInfo = ((Auth::user()->name));
+        $info = seller_info::where('username',$sellerInfo)->GET();
+
+        $endBid=item::where('seller',$sellerInfo)->orderBy('itemCode','DESC')->whereDate('bidEnd', '<=', Carbon::now())->take(6)->get();
+
+        return view('profileSeller', compact('info','endBid'));
+    }
+
+    
 }

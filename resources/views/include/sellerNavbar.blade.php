@@ -9,13 +9,13 @@
   <div class="collapse navbar-collapse justify-content-center text-uppercase font-weight-bold" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active"> 
-        <a class="nav-link" href="/Saledashboard">Sales Dashboard</a>
+        <a class="nav-link" href="/Saledashboard">Dashboard</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="/ItemInsert">New Item </a>
+        <a class="nav-link" href="/ItemInsert">New Item</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" data-toggle="modal" data-target=".bd-inspect-modal-lg" href="#">Physical Inspection Request <span class="badge badge-primary">{{$inspectnotify}}</span></a>
+        <a class="nav-link" data-toggle="modal" data-target=".bd-inspect-modal-lg" href="#">Inspection Request <span class="badge badge-primary">{{$inspectnotify}}</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="/ItemDelete">Item Delete </a>
@@ -30,7 +30,7 @@
         <a class="nav-link" href="#">Messages</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="/Help">Help</a>
+        <a class="nav-link" href="/sellerProfle">Profile</a>
       </li>
       <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

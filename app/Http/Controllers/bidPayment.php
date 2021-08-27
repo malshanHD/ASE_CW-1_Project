@@ -8,6 +8,7 @@ use App\Models\item;
 use App\Models\buyerUser;
 use App\Models\seller_info;
 use DB;
+use Auth;
 
 class bidPayment extends Controller
 {
@@ -19,8 +20,9 @@ class bidPayment extends Controller
         $bidDeposite=$request->amount;
         $itemNAme=$request->items;
         $reason="Bid Deposite";
+        $seller=$request->seller;
 
-        return view('paymentView', compact('itemID', 'buyerNamme','bidAmount','bidDeposite','reason','itemNAme'));
+        return view('paymentView', compact('itemID', 'buyerNamme','bidAmount','bidDeposite','reason','itemNAme','seller'));
 
     }
 
@@ -28,11 +30,12 @@ class bidPayment extends Controller
         $bidData=new bidPay;
 
         
-
+        
         $bidData->itemID= $request->itemID;
         $bidData->buyerUsername= $request->buyerName;
         $bidData->bidAmount= $request->bidAmount;
         $bidData->deposite= $request->bidDeposite;
+        $bidData->seller= $request->seller;
         $bidData->save();
 
         return redirect('/');
@@ -62,4 +65,28 @@ class bidPayment extends Controller
         
         return view('itemPayment', compact('bidID','diposite','bidAmount','bidderName','sellerName','itemCode'));
     }
+
+    public function bidwinnerview($itemCode){
+        //$winner=bidPay::where('itemID',$itemCode)->orderBy('bidAmount', 'DESC')->take(1)->get();
+        
+        $sellerInfo = ((Auth::user()->name));
+        $info = seller_info::where('username',$sellerInfo)->GET();
+
+        $winner=DB::table('bid_pays')
+        ->select('bid_pays.*','items.*')
+        ->join('items','items.itemCode','=','bid_pays.itemID')
+        ->orderBy('bidAmount', 'DESC')
+        ->where('bid_pays.itemID',$itemCode)
+        ->take(1)->get();
+        return view('winnerView', compact('winner','info'));
+    }
+
+    public function customerNotify($bidID){
+        $updateWinner = DB::table('bid_pays')->where('bidID', $bidID)->update([
+            'winner' => 1,
+            
+        ]);
+        return redirect()->back();
+    }
+
 }

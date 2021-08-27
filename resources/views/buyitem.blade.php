@@ -116,6 +116,7 @@
                     
                     <input type="hidden" name="itemCode" value="{{$data->itemCode}}">
                     <input type="hidden" name="itemBuyer" value="{{ Auth::user()->name }}">
+                    <input type="hidden" name="seller" value="{{$data->seller}}">
                     
                     </form>
 
