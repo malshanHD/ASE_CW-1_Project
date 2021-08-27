@@ -44,7 +44,7 @@ class LoginController extends Controller
             return redirect()->to('/Saledashboard');
         }
         elseif($user->user_Level == 3){
-            return redirect()->to('/adminReg');
+            return redirect()->to('/Admindashboard');
         }
         else{
             return redirect()->to('/');

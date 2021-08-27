@@ -161,10 +161,12 @@ Route::middleware(['auth','admin'])->group(function (){
         return view('adminregistration', compact('report'));
     });
      //admin dashboard
-    Route::get('/Admindashboard',function(){
-    $report=App\Models\sellerReport::where('action','0')->get()->count();
-    return view('admindashboard', compact('report'));
-    });
+    // Route::get('/Admindashboard',function(){
+    // $report=App\Models\sellerReport::where('action','0')->get()->count();
+    // return view('admindashboard', compact('report'));
+    // });
+
+    Route::get('Admindashboard',[sellerSignUpController::class, 'adminDashboard']);
 
     // Rout get report data
     Route::get('/reportData',function(){

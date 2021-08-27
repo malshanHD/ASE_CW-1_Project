@@ -12,6 +12,8 @@ use App\Models\item;
 use Carbon\Carbon;
 use App\Models\bidPay;
 use App\Models\paiddetails;
+use App\Models\buyerUser;
+use App\Models\registrationPayment;
 use DB;
 
 use Auth;
@@ -242,5 +244,15 @@ class sellerSignUpController extends Controller
         $avgStar = sellerRate::where('seller',$seller)->avg('value');
 
         return view('salesdashboard', compact('orders','revenue','products','avgStar','customers'));
+    }
+
+    public function adminDashboard(){
+        $report=sellerReport::where('action','0')->get()->count();
+        $sellers = seller_info::where('status', 1)->GET()->count();
+        $customers = buyerUser::where('registrationPayment', 1)->GET()->count();
+        $revenue = paiddetails::sum('companyCharge');
+        $regIncome = registrationPayment::sum('value');
+        
+        return view('admindashboard', compact('report','sellers','customers','revenue','regIncome'));
     }
 }
