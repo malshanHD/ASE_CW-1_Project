@@ -113,18 +113,9 @@
             </div>
         </div>
     </div>
-    <div class="row mt-5">
-        <div class="col-3">
+    <div class="row mt-5 justify-content-center">
+        <div class="col-8">
             <input type="submit" class="btn btn-primary btn-block" value="Add">
-        </div>
-        <div class="col-3">
-            <input type="submit" class="btn btn-success btn-block" value="Update">
-        </div>
-        <div class="col-3">
-            <input type="submit" class="btn btn-danger btn-block" value="Delete">
-        </div>
-        <div class="col-3">
-            <input type="submit" class="btn btn-warning btn-block" value="Clear">
         </div>
     </div>
     </form>
